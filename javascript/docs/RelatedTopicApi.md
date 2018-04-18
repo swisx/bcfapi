@@ -4,13 +4,13 @@ All URIs are relative to *https://virtserver.swaggerhub.com/swisx/bcfAPI/1.0.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet**](RelatedTopicApi.md#bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/related_topics | Retrieve a collection of all related topics to a topic.
-[**bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut**](RelatedTopicApi.md#bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{guid}/related_topics | Add or update a collection of all related topics to a topic.
+[**bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet**](RelatedTopicApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/related_topics | Retrieve a collection of all related topics to a topic.
+[**bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut**](RelatedTopicApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/related_topics | Add or update a collection of all related topics to a topic.
 
 
-<a name="bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet"></a>
-# **bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet**
-> [RelatedTopicGET] bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet(version, projectId, guid)
+<a name="bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet"></a>
+# **bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet**
+> [RelatedTopicGET] bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet(version, projectId, topicGuid, )
 
 Retrieve a collection of all related topics to a topic.
 
@@ -26,10 +26,10 @@ let version = "version_example"; // String | BFC Version
 
 let projectId = "projectId_example"; // String | Project ID
 
-let guid = "guid_example"; // String | Topic guid
+let topicGuid = "topicGuid_example"; // String | Topic guid
 
 
-apiInstance.bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet(version, projectId, guid, (error, data, response) => {
+apiInstance.bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet(version, projectId, topicGuid, , (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **String**| BFC Version | 
  **projectId** | **String**| Project ID | 
- **guid** | **String**| Topic guid | 
+ **topicGuid** | **String**| Topic guid | 
 
 ### Return type
 
@@ -59,9 +59,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut"></a>
-# **bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut**
-> [RelatedTopicGET] bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut(version, projectId, guid, opts)
+<a name="bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut"></a>
+# **bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut**
+> [RelatedTopicGET] bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut(version, projectId, topicGuid, , opts)
 
 Add or update a collection of all related topics to a topic.
 
@@ -77,13 +77,13 @@ let version = "version_example"; // String | BFC Version
 
 let projectId = "projectId_example"; // String | Project ID
 
-let guid = "guid_example"; // String | Topic guid
+let topicGuid = "topicGuid_example"; // String | Topic guid
 
 let opts = { 
   'relatedTopicPUT': new Bcfapi.RelatedTopicGET() // RelatedTopicGET | 
 };
 
-apiInstance.bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut(version, projectId, guid, opts, (error, data, response) => {
+apiInstance.bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut(version, projectId, topicGuid, , opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **String**| BFC Version | 
  **projectId** | **String**| Project ID | 
- **guid** | **String**| Topic guid | 
+ **topicGuid** | **String**| Topic guid | 
  **relatedTopicPUT** | [**RelatedTopicGET**](RelatedTopicGET.md)|  | [optional] 
 
 ### Return type

@@ -37,68 +37,8 @@ export default class CommentApi {
 
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidCommentsGet operation.
-     * @callback module:api/CommentApi~bcfVersionProjectsProjectIdTopicsGuidCommentsGetCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/CommentGET>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Retrieve a collection of all comments related to a topic
-     * Retrieve a collection of all comments related to a topic (default ordering is date).
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
-     * @param {module:api/CommentApi~bcfVersionProjectsProjectIdTopicsGuidCommentsGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/CommentGET>}
-     */
-    bcfVersionProjectsProjectIdTopicsGuidCommentsGet(version, projectId, guid, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGet");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGet");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGet");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = [CommentGET];
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/comments', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete operation.
-     * @callback module:api/CommentApi~bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDeleteCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete operation.
+     * @callback module:api/CommentApi~bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDeleteCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
@@ -109,32 +49,39 @@ export default class CommentApi {
      * Deletes a single comment. This operation is only possible when the server returns the delete flag in the Comment authorization.
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Comment guid
-     * @param {module:api/CommentApi~bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} topicGuid Topic guid
+     * @param {String} commentGuid Comment guid
+     * @param {module:api/CommentApi~bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete(version, projectId, guid, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete(version, projectId, topicGuid, commentGuid, callback) {
       let postBody = null;
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete");
+      }
+
+      // verify the required parameter 'commentGuid' is set
+      if (commentGuid === undefined || commentGuid === null) {
+        throw new Error("Missing the required parameter 'commentGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid,
+        'comment_guid': commentGuid
       };
       let queryParams = {
       };
@@ -149,15 +96,15 @@ export default class CommentApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/comments/{guid}', 'DELETE',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet operation.
-     * @callback module:api/CommentApi~bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGetCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet operation.
+     * @callback module:api/CommentApi~bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGetCallback
      * @param {String} error Error message, if any.
      * @param {module:model/CommentGET} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -168,33 +115,40 @@ export default class CommentApi {
      * Retrieve a collection of all comments related to a topic (default ordering is date).
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Comment guid
-     * @param {module:api/CommentApi~bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} topicGuid Topic guid
+     * @param {String} commentGuid Comment guid
+     * @param {module:api/CommentApi~bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommentGET}
      */
-    bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet(version, projectId, guid, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet(version, projectId, topicGuid, commentGuid, callback) {
       let postBody = null;
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet");
+      }
+
+      // verify the required parameter 'commentGuid' is set
+      if (commentGuid === undefined || commentGuid === null) {
+        throw new Error("Missing the required parameter 'commentGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid,
+        'comment_guid': commentGuid
       };
       let queryParams = {
       };
@@ -209,15 +163,15 @@ export default class CommentApi {
       let returnType = CommentGET;
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/comments/{guid}', 'GET',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut operation.
-     * @callback module:api/CommentApi~bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPutCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut operation.
+     * @callback module:api/CommentApi~bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPutCallback
      * @param {String} error Error message, if any.
      * @param {module:model/CommentGET} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -228,36 +182,43 @@ export default class CommentApi {
      * Update a single comment, description similar to POST. This operation is only possible when the server returns the update flag in the Comment authorization.
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Comment guid
+     * @param {String} topicGuid Topic guid
+     * @param {String} commentGuid Comment guid
      * @param {Object} opts Optional parameters
      * @param {module:model/CommentPUT} opts.commentPUT 
-     * @param {module:api/CommentApi~bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CommentApi~bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommentGET}
      */
-    bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut(version, projectId, guid, opts, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut(version, projectId, topicGuid, commentGuid, opts, callback) {
       opts = opts || {};
       let postBody = opts['commentPUT'];
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut");
+      }
+
+      // verify the required parameter 'commentGuid' is set
+      if (commentGuid === undefined || commentGuid === null) {
+        throw new Error("Missing the required parameter 'commentGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid,
+        'comment_guid': commentGuid
       };
       let queryParams = {
       };
@@ -272,15 +233,75 @@ export default class CommentApi {
       let returnType = CommentGET;
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/comments/{guid}', 'PUT',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidCommentsPost operation.
-     * @callback module:api/CommentApi~bcfVersionProjectsProjectIdTopicsGuidCommentsPostCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet operation.
+     * @callback module:api/CommentApi~bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGetCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/CommentGET>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve a collection of all comments related to a topic
+     * Retrieve a collection of all comments related to a topic (default ordering is date).
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {module:api/CommentApi~bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/CommentGET>}
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet(version, projectId, topicGuid, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [CommentGET];
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost operation.
+     * @callback module:api/CommentApi~bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPostCallback
      * @param {String} error Error message, if any.
      * @param {module:model/CommentGET} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -291,36 +312,36 @@ export default class CommentApi {
      * Add a new comment to a topic. This operation is only possible when the server returns the createComment flag in the Topic authorization.
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
+     * @param {String} topicGuid Topic guid
      * @param {Object} opts Optional parameters
      * @param {module:model/CommentPOST} opts.commentPOST 
-     * @param {module:api/CommentApi~bcfVersionProjectsProjectIdTopicsGuidCommentsPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CommentApi~bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CommentGET}
      */
-    bcfVersionProjectsProjectIdTopicsGuidCommentsPost(version, projectId, guid, opts, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost(version, projectId, topicGuid, opts, callback) {
       opts = opts || {};
       let postBody = opts['commentPOST'];
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsPost");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsPost");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidCommentsPost");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid
       };
       let queryParams = {
       };
@@ -335,7 +356,7 @@ export default class CommentApi {
       let returnType = CommentGET;
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/comments', 'POST',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

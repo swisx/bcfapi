@@ -39,126 +39,8 @@ export default class ViewpointApi {
 
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet operation.
-     * @callback module:api/ViewpointApi~bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Retrieve a specific viewpoints bitmap image file (png or jpg).
-     * Retrieve a specific viewpoints bitmap image file (png or jpg).
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Bitmap guid
-     * @param {module:api/ViewpointApi~bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet(version, projectId, guid, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = null;
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{guid}/topics/{guid}/viewpoints/{guid}/bitmaps/{guid}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet operation.
-     * @callback module:api/ViewpointApi~bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Retrieve a viewpoints snapshot (png or jpg) as image file.
-     * Retrieve a viewpoints snapshot (png or jpg) as image file.
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Viewpoint guid
-     * @param {module:api/ViewpointApi~bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet(version, projectId, guid, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = null;
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{guid}/topics/{guid}/viewpoints/{guid}/snapshot', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidViewpointsGet operation.
-     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsGetCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet operation.
+     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/ViewpointGET>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -169,33 +51,33 @@ export default class ViewpointApi {
      * Retrieve a collection of all viewpoints related to a topic.
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
-     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} topicGuid Topic guid
+     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ViewpointGET>}
      */
-    bcfVersionProjectsProjectIdTopicsGuidViewpointsGet(version, projectId, guid, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet(version, projectId, topicGuid, callback) {
       let postBody = null;
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGet");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGet");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGet");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid
       };
       let queryParams = {
       };
@@ -210,255 +92,15 @@ export default class ViewpointApi {
       let returnType = [ViewpointGET];
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints', 'GET',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet operation.
-     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ColoringGET>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Retrieve a collection of all colored components in a viewpoint.
-     * Retrieve a collection of all colored components in a viewpoint.
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Viewpoint guid
-     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ColoringGET>}
-     */
-    bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet(version, projectId, guid, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = [ColoringGET];
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid}/coloring', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet operation.
-     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ViewpointGET>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Retrieve a collection of all viewpoints related to a topic.
-     * Retrieve a collection of all viewpoints related to a topic.
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Viewpoint guid
-     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ViewpointGET>}
-     */
-    bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet(version, projectId, guid, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = [ViewpointGET];
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet operation.
-     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SelectionGET>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Retrieve a collection of all selected components in a viewpoint.
-     * Retrieve a collection of all selected components in a viewpoint.
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Viewpoint guid
-     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SelectionGET>}
-     */
-    bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet(version, projectId, guid, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = [SelectionGET];
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid}/selection', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet operation.
-     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/VisibilityGET>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Retrieve visibility of components in a viewpoint.
-     * Retrieve visibility of components in a viewpoint.
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Viewpoint guid
-     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/VisibilityGET>}
-     */
-    bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet(version, projectId, guid, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = [VisibilityGET];
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid}/visibility', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidViewpointsPost operation.
-     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsPostCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost operation.
+     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostCallback
      * @param {String} error Error message, if any.
      * @param {module:model/ViewpointGET} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -469,36 +111,36 @@ export default class ViewpointApi {
      * Add a new viewpoint. Viewpoints are immutable, meaning that they should never change. Requirements for different visualizations should be handled by creating new viewpoint elements. This operation is only possible when the server returns the createViewpoint flag in the Topic authorization.
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
+     * @param {String} topicGuid Topic guid
      * @param {Object} opts Optional parameters
      * @param {module:model/ViewpointPOST} opts.viewpointPOST 
-     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsGuidViewpointsPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ViewpointGET}
      */
-    bcfVersionProjectsProjectIdTopicsGuidViewpointsPost(version, projectId, guid, opts, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost(version, projectId, topicGuid, opts, callback) {
       opts = opts || {};
       let postBody = opts['viewpointPOST'];
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsPost");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsPost");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsPost");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid
       };
       let queryParams = {
       };
@@ -513,7 +155,414 @@ export default class ViewpointApi {
       let returnType = ViewpointGET;
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints', 'POST',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet operation.
+     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve a specific viewpoints bitmap image file (png or jpg).
+     * Retrieve a specific viewpoints bitmap image file (png or jpg).
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {String} viewpointGuid Viewpoint guid
+     * @param {String} bitmapGuid Bitmap guid
+     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet(version, projectId, topicGuid, viewpointGuid, bitmapGuid, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet");
+      }
+
+      // verify the required parameter 'viewpointGuid' is set
+      if (viewpointGuid === undefined || viewpointGuid === null) {
+        throw new Error("Missing the required parameter 'viewpointGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet");
+      }
+
+      // verify the required parameter 'bitmapGuid' is set
+      if (bitmapGuid === undefined || bitmapGuid === null) {
+        throw new Error("Missing the required parameter 'bitmapGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid,
+        'viewpoint_guid': viewpointGuid,
+        'bitmap_guid': bitmapGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/bitmaps/{bitmap_guid}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet operation.
+     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/ColoringGET>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve a collection of all colored components in a viewpoint.
+     * Retrieve a collection of all colored components in a viewpoint.
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {String} viewpointGuid Viewpoint guid
+     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/ColoringGET>}
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet(version, projectId, topicGuid, viewpointGuid, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet");
+      }
+
+      // verify the required parameter 'viewpointGuid' is set
+      if (viewpointGuid === undefined || viewpointGuid === null) {
+        throw new Error("Missing the required parameter 'viewpointGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid,
+        'viewpoint_guid': viewpointGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [ColoringGET];
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/coloring', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet operation.
+     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/ViewpointGET>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve a collection of all viewpoints related to a topic.
+     * Retrieve a collection of all viewpoints related to a topic.
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {String} viewpointGuid Viewpoint guid
+     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/ViewpointGET>}
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet(version, projectId, topicGuid, viewpointGuid, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet");
+      }
+
+      // verify the required parameter 'viewpointGuid' is set
+      if (viewpointGuid === undefined || viewpointGuid === null) {
+        throw new Error("Missing the required parameter 'viewpointGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid,
+        'viewpoint_guid': viewpointGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [ViewpointGET];
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet operation.
+     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/SelectionGET>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve a collection of all selected components in a viewpoint.
+     * Retrieve a collection of all selected components in a viewpoint.
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {String} viewpointGuid Viewpoint guid
+     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/SelectionGET>}
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet(version, projectId, topicGuid, viewpointGuid, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet");
+      }
+
+      // verify the required parameter 'viewpointGuid' is set
+      if (viewpointGuid === undefined || viewpointGuid === null) {
+        throw new Error("Missing the required parameter 'viewpointGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid,
+        'viewpoint_guid': viewpointGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [SelectionGET];
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/selection', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet operation.
+     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve a viewpoints snapshot (png or jpg) as image file.
+     * Retrieve a viewpoints snapshot (png or jpg) as image file.
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {String} viewpointGuid Viewpoint guid
+     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet(version, projectId, topicGuid, viewpointGuid, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet");
+      }
+
+      // verify the required parameter 'viewpointGuid' is set
+      if (viewpointGuid === undefined || viewpointGuid === null) {
+        throw new Error("Missing the required parameter 'viewpointGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid,
+        'viewpoint_guid': viewpointGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/snapshot', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet operation.
+     * @callback module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/VisibilityGET>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve visibility of components in a viewpoint.
+     * Retrieve visibility of components in a viewpoint.
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {String} viewpointGuid Viewpoint guid
+     * @param {module:api/ViewpointApi~bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/VisibilityGET>}
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet(version, projectId, topicGuid, viewpointGuid, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet");
+      }
+
+      // verify the required parameter 'viewpointGuid' is set
+      if (viewpointGuid === undefined || viewpointGuid === null) {
+        throw new Error("Missing the required parameter 'viewpointGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid,
+        'viewpoint_guid': viewpointGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = [VisibilityGET];
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/visibility', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

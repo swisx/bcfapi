@@ -36,8 +36,8 @@ export default class FileApi {
 
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidFilesGet operation.
-     * @callback module:api/FileApi~bcfVersionProjectsProjectIdTopicsGuidFilesGetCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet operation.
+     * @callback module:api/FileApi~bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/FileGET>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -48,33 +48,33 @@ export default class FileApi {
      * Retrieve a collection of file references as topic header.
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
-     * @param {module:api/FileApi~bcfVersionProjectsProjectIdTopicsGuidFilesGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} topicGuid Topic guid
+     * @param {module:api/FileApi~bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/FileGET>}
      */
-    bcfVersionProjectsProjectIdTopicsGuidFilesGet(version, projectId, guid, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet(version, projectId, topicGuid, callback) {
       let postBody = null;
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidFilesGet");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidFilesGet");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidFilesGet");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid
       };
       let queryParams = {
       };
@@ -89,15 +89,15 @@ export default class FileApi {
       let returnType = [FileGET];
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/files', 'GET',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/files', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidFilesPut operation.
-     * @callback module:api/FileApi~bcfVersionProjectsProjectIdTopicsGuidFilesPutCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut operation.
+     * @callback module:api/FileApi~bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutCallback
      * @param {String} error Error message, if any.
      * @param {module:model/FileGET} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -108,36 +108,36 @@ export default class FileApi {
      * Update a collection of file references on the topic header. This operation is only possible when the server returns the updateFiles flag in the Topic authorization.
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
+     * @param {String} topicGuid Topic guid
      * @param {Object} opts Optional parameters
      * @param {module:model/FilePUT} opts.filePUT 
-     * @param {module:api/FileApi~bcfVersionProjectsProjectIdTopicsGuidFilesPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/FileApi~bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FileGET}
      */
-    bcfVersionProjectsProjectIdTopicsGuidFilesPut(version, projectId, guid, opts, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut(version, projectId, topicGuid, opts, callback) {
       opts = opts || {};
       let postBody = opts['filePUT'];
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidFilesPut");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidFilesPut");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidFilesPut");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid
       };
       let queryParams = {
       };
@@ -152,7 +152,7 @@ export default class FileApi {
       let returnType = FileGET;
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/files', 'PUT',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/files', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

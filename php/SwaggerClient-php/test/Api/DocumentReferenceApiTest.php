@@ -73,22 +73,22 @@ class DocumentReferenceApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet
      *
      * Retrieve a collection of all document references to a topic..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet()
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet()
     {
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost
      *
      * Retrieve a collection of all document references to a topic..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost()
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost()
     {
     }
 }

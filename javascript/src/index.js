@@ -66,12 +66,15 @@ import ViewpointPOST from './model/ViewpointPOST';
 import Visibility from './model/Visibility';
 import VisibilityGET from './model/VisibilityGET';
 import CommentApi from './api/CommentApi';
+import CommentEventsApi from './api/CommentEventsApi';
+import DocumentApi from './api/DocumentApi';
 import DocumentReferenceApi from './api/DocumentReferenceApi';
 import FileApi from './api/FileApi';
 import ProjectApi from './api/ProjectApi';
 import PublicApi from './api/PublicApi';
 import RelatedTopicApi from './api/RelatedTopicApi';
 import TopicApi from './api/TopicApi';
+import TopicEventsApi from './api/TopicEventsApi';
 import ViewpointApi from './api/ViewpointApi';
 
 
@@ -432,6 +435,18 @@ export {
     CommentApi,
 
     /**
+    * The CommentEventsApi service constructor.
+    * @property {module:api/CommentEventsApi}
+    */
+    CommentEventsApi,
+
+    /**
+    * The DocumentApi service constructor.
+    * @property {module:api/DocumentApi}
+    */
+    DocumentApi,
+
+    /**
     * The DocumentReferenceApi service constructor.
     * @property {module:api/DocumentReferenceApi}
     */
@@ -466,6 +481,12 @@ export {
     * @property {module:api/TopicApi}
     */
     TopicApi,
+
+    /**
+    * The TopicEventsApi service constructor.
+    * @property {module:api/TopicEventsApi}
+    */
+    TopicEventsApi,
 
     /**
     * The ViewpointApi service constructor.

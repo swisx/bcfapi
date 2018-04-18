@@ -36,8 +36,8 @@ export default class DocumentReferenceApi {
 
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet operation.
-     * @callback module:api/DocumentReferenceApi~bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGetCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet operation.
+     * @callback module:api/DocumentReferenceApi~bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/DocumentReferenceGET>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -48,33 +48,33 @@ export default class DocumentReferenceApi {
      * Retrieve a collection of all document references to a topic.
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
-     * @param {module:api/DocumentReferenceApi~bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} topicGuid Topic guid
+     * @param {module:api/DocumentReferenceApi~bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/DocumentReferenceGET>}
      */
-    bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet(version, projectId, guid, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet(version, projectId, topicGuid, callback) {
       let postBody = null;
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid
       };
       let queryParams = {
       };
@@ -89,15 +89,15 @@ export default class DocumentReferenceApi {
       let returnType = [DocumentReferenceGET];
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/document_references', 'GET',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost operation.
-     * @callback module:api/DocumentReferenceApi~bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPostCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost operation.
+     * @callback module:api/DocumentReferenceApi~bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/DocumentReferenceGET>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -108,36 +108,36 @@ export default class DocumentReferenceApi {
      * Retrieve a collection of all document references to a topic.
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
+     * @param {String} topicGuid Topic guid
      * @param {Object} opts Optional parameters
      * @param {module:model/DocumentReferencePOST} opts.documentReferencePOST 
-     * @param {module:api/DocumentReferenceApi~bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DocumentReferenceApi~bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/DocumentReferenceGET>}
      */
-    bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost(version, projectId, guid, opts, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost(version, projectId, topicGuid, opts, callback) {
       opts = opts || {};
       let postBody = opts['documentReferencePOST'];
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid
       };
       let queryParams = {
       };
@@ -152,7 +152,7 @@ export default class DocumentReferenceApi {
       let returnType = [DocumentReferenceGET];
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/document_references', 'POST',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

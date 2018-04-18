@@ -48,20 +48,20 @@
   }
 
   describe('RelatedTopicApi', function() {
-    describe('bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet
-        //instance.bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut
-        //instance.bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

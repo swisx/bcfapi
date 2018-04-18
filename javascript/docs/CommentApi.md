@@ -4,67 +4,16 @@ All URIs are relative to *https://virtserver.swaggerhub.com/swisx/bcfAPI/1.0.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bcfVersionProjectsProjectIdTopicsGuidCommentsGet**](CommentApi.md#bcfVersionProjectsProjectIdTopicsGuidCommentsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/comments | Retrieve a collection of all comments related to a topic
-[**bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete**](CommentApi.md#bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete) | **DELETE** /bcf/{version}/projects/{project_id}/topics/{guid}/comments/{guid} | Deletes a single comment.
-[**bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet**](CommentApi.md#bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/comments/{guid} | Retrieve a collection of all comments related to a topic
-[**bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut**](CommentApi.md#bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{guid}/comments/{guid} | Update a single comment
-[**bcfVersionProjectsProjectIdTopicsGuidCommentsPost**](CommentApi.md#bcfVersionProjectsProjectIdTopicsGuidCommentsPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{guid}/comments | Add a new comment to a topic.
+[**bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete**](CommentApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete) | **DELETE** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid} | Deletes a single comment.
+[**bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet**](CommentApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid} | Retrieve a collection of all comments related to a topic
+[**bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut**](CommentApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid} | Update a single comment
+[**bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet**](CommentApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments | Retrieve a collection of all comments related to a topic
+[**bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost**](CommentApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments | Add a new comment to a topic.
 
 
-<a name="bcfVersionProjectsProjectIdTopicsGuidCommentsGet"></a>
-# **bcfVersionProjectsProjectIdTopicsGuidCommentsGet**
-> [CommentGET] bcfVersionProjectsProjectIdTopicsGuidCommentsGet(version, projectId, guid)
-
-Retrieve a collection of all comments related to a topic
-
-Retrieve a collection of all comments related to a topic (default ordering is date).
-
-### Example
-```javascript
-import Bcfapi from 'bcfapi';
-
-let apiInstance = new Bcfapi.CommentApi();
-
-let version = "version_example"; // String | BFC Version
-
-let projectId = "projectId_example"; // String | Project ID
-
-let guid = "guid_example"; // String | Topic guid
-
-
-apiInstance.bcfVersionProjectsProjectIdTopicsGuidCommentsGet(version, projectId, guid, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **version** | **String**| BFC Version | 
- **projectId** | **String**| Project ID | 
- **guid** | **String**| Topic guid | 
-
-### Return type
-
-[**[CommentGET]**](CommentGET.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete"></a>
-# **bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete**
-> bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete(version, projectId, guid)
+<a name="bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete"></a>
+# **bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete**
+> bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete(version, projectId, topicGuid, commentGuid)
 
 Deletes a single comment.
 
@@ -80,10 +29,12 @@ let version = "version_example"; // String | BFC Version
 
 let projectId = "projectId_example"; // String | Project ID
 
-let guid = "guid_example"; // String | Comment guid
+let topicGuid = "topicGuid_example"; // String | Topic guid
+
+let commentGuid = "commentGuid_example"; // String | Comment guid
 
 
-apiInstance.bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete(version, projectId, guid, (error, data, response) => {
+apiInstance.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete(version, projectId, topicGuid, commentGuid, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -98,7 +49,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **String**| BFC Version | 
  **projectId** | **String**| Project ID | 
- **guid** | **String**| Comment guid | 
+ **topicGuid** | **String**| Topic guid | 
+ **commentGuid** | **String**| Comment guid | 
 
 ### Return type
 
@@ -113,9 +65,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet"></a>
-# **bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet**
-> CommentGET bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet(version, projectId, guid)
+<a name="bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet"></a>
+# **bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet**
+> CommentGET bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet(version, projectId, topicGuid, commentGuid)
 
 Retrieve a collection of all comments related to a topic
 
@@ -131,10 +83,12 @@ let version = "version_example"; // String | BFC Version
 
 let projectId = "projectId_example"; // String | Project ID
 
-let guid = "guid_example"; // String | Comment guid
+let topicGuid = "topicGuid_example"; // String | Topic guid
+
+let commentGuid = "commentGuid_example"; // String | Comment guid
 
 
-apiInstance.bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet(version, projectId, guid, (error, data, response) => {
+apiInstance.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet(version, projectId, topicGuid, commentGuid, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -149,7 +103,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **String**| BFC Version | 
  **projectId** | **String**| Project ID | 
- **guid** | **String**| Comment guid | 
+ **topicGuid** | **String**| Topic guid | 
+ **commentGuid** | **String**| Comment guid | 
 
 ### Return type
 
@@ -164,9 +119,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut"></a>
-# **bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut**
-> CommentGET bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut(version, projectId, guid, opts)
+<a name="bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut"></a>
+# **bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut**
+> CommentGET bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut(version, projectId, topicGuid, commentGuid, opts)
 
 Update a single comment
 
@@ -182,13 +137,15 @@ let version = "version_example"; // String | BFC Version
 
 let projectId = "projectId_example"; // String | Project ID
 
-let guid = "guid_example"; // String | Comment guid
+let topicGuid = "topicGuid_example"; // String | Topic guid
+
+let commentGuid = "commentGuid_example"; // String | Comment guid
 
 let opts = { 
   'commentPUT': new Bcfapi.CommentPUT() // CommentPUT | 
 };
 
-apiInstance.bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut(version, projectId, guid, opts, (error, data, response) => {
+apiInstance.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut(version, projectId, topicGuid, commentGuid, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -203,7 +160,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **String**| BFC Version | 
  **projectId** | **String**| Project ID | 
- **guid** | **String**| Comment guid | 
+ **topicGuid** | **String**| Topic guid | 
+ **commentGuid** | **String**| Comment guid | 
  **commentPUT** | [**CommentPUT**](CommentPUT.md)|  | [optional] 
 
 ### Return type
@@ -219,9 +177,60 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="bcfVersionProjectsProjectIdTopicsGuidCommentsPost"></a>
-# **bcfVersionProjectsProjectIdTopicsGuidCommentsPost**
-> CommentGET bcfVersionProjectsProjectIdTopicsGuidCommentsPost(version, projectId, guid, opts)
+<a name="bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet"></a>
+# **bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet**
+> [CommentGET] bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet(version, projectId, topicGuid, )
+
+Retrieve a collection of all comments related to a topic
+
+Retrieve a collection of all comments related to a topic (default ordering is date).
+
+### Example
+```javascript
+import Bcfapi from 'bcfapi';
+
+let apiInstance = new Bcfapi.CommentApi();
+
+let version = "version_example"; // String | BFC Version
+
+let projectId = "projectId_example"; // String | Project ID
+
+let topicGuid = "topicGuid_example"; // String | Topic guid
+
+
+apiInstance.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet(version, projectId, topicGuid, , (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **version** | **String**| BFC Version | 
+ **projectId** | **String**| Project ID | 
+ **topicGuid** | **String**| Topic guid | 
+
+### Return type
+
+[**[CommentGET]**](CommentGET.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost"></a>
+# **bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost**
+> CommentGET bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost(version, projectId, topicGuid, , opts)
 
 Add a new comment to a topic.
 
@@ -237,13 +246,13 @@ let version = "version_example"; // String | BFC Version
 
 let projectId = "projectId_example"; // String | Project ID
 
-let guid = "guid_example"; // String | Topic guid
+let topicGuid = "topicGuid_example"; // String | Topic guid
 
 let opts = { 
   'commentPOST': new Bcfapi.CommentPOST() // CommentPOST | 
 };
 
-apiInstance.bcfVersionProjectsProjectIdTopicsGuidCommentsPost(version, projectId, guid, opts, (error, data, response) => {
+apiInstance.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost(version, projectId, topicGuid, , opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -258,7 +267,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **String**| BFC Version | 
  **projectId** | **String**| Project ID | 
- **guid** | **String**| Topic guid | 
+ **topicGuid** | **String**| Topic guid | 
  **commentPOST** | [**CommentPOST**](CommentPOST.md)|  | [optional] 
 
 ### Return type

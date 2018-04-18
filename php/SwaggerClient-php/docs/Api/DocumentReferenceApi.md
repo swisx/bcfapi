@@ -4,12 +4,12 @@ All URIs are relative to *https://virtserver.swaggerhub.com/swisx/bcfAPI/1.0.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet**](DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/document_references | Retrieve a collection of all document references to a topic.
-[**bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost**](DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{guid}/document_references | Retrieve a collection of all document references to a topic.
+[**bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet**](DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references | Retrieve a collection of all document references to a topic.
+[**bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost**](DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references | Retrieve a collection of all document references to a topic.
 
 
-# **bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet**
-> \Swagger\Client\Model\DocumentReferenceGET[] bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet($version, $project_id, $guid)
+# **bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet**
+> \Swagger\Client\Model\DocumentReferenceGET[] bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet($version, $project_id, $topic_guid)
 
 Retrieve a collection of all document references to a topic.
 
@@ -27,13 +27,13 @@ $apiInstance = new Swagger\Client\Api\DocumentReferenceApi(
 );
 $version = "version_example"; // string | BFC Version
 $project_id = "project_id_example"; // string | Project ID
-$guid = "guid_example"; // string | Topic guid
+$topic_guid = "topic_guid_example"; // string | Topic guid
 
 try {
-    $result = $apiInstance->bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet($version, $project_id, $guid);
+    $result = $apiInstance->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet($version, $project_id, $topic_guid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentReferenceApi->bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentReferenceApi->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **string**| BFC Version |
  **project_id** | **string**| Project ID |
- **guid** | **string**| Topic guid |
+ **topic_guid** | **string**| Topic guid |
 
 ### Return type
 
@@ -61,8 +61,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost**
-> \Swagger\Client\Model\DocumentReferenceGET[] bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost($version, $project_id, $guid, $document_reference_post)
+# **bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost**
+> \Swagger\Client\Model\DocumentReferenceGET[] bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost($version, $project_id, $topic_guid, $document_reference_post)
 
 Retrieve a collection of all document references to a topic.
 
@@ -80,14 +80,14 @@ $apiInstance = new Swagger\Client\Api\DocumentReferenceApi(
 );
 $version = "version_example"; // string | BFC Version
 $project_id = "project_id_example"; // string | Project ID
-$guid = "guid_example"; // string | Topic guid
+$topic_guid = "topic_guid_example"; // string | Topic guid
 $document_reference_post = new \Swagger\Client\Model\DocumentReferencePOST(); // \Swagger\Client\Model\DocumentReferencePOST | 
 
 try {
-    $result = $apiInstance->bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost($version, $project_id, $guid, $document_reference_post);
+    $result = $apiInstance->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost($version, $project_id, $topic_guid, $document_reference_post);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DocumentReferenceApi->bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DocumentReferenceApi->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **string**| BFC Version |
  **project_id** | **string**| Project ID |
- **guid** | **string**| Topic guid |
+ **topic_guid** | **string**| Topic guid |
  **document_reference_post** | [**\Swagger\Client\Model\DocumentReferencePOST**](../Model/DocumentReferencePOST.md)|  | [optional]
 
 ### Return type

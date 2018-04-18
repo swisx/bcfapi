@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Bcfapi.FileApi();
+    instance = new Bcfapi.DocumentApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,21 +47,31 @@
       object[property] = value;
   }
 
-  describe('FileApi', function() {
-    describe('bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet
-        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet(function(error) {
+  describe('DocumentApi', function() {
+    describe('bcfVersionProjectsProjectIdDocumentsDocumentGuidGet', function() {
+      it('should call bcfVersionProjectsProjectIdDocumentsDocumentGuidGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdDocumentsDocumentGuidGet
+        //instance.bcfVersionProjectsProjectIdDocumentsDocumentGuidGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut
-        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut(function(error) {
+    describe('bcfVersionProjectsProjectIdDocumentsGet', function() {
+      it('should call bcfVersionProjectsProjectIdDocumentsGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdDocumentsGet
+        //instance.bcfVersionProjectsProjectIdDocumentsGet(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('bcfVersionProjectsProjectIdDocumentsPost', function() {
+      it('should call bcfVersionProjectsProjectIdDocumentsPost successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdDocumentsPost
+        //instance.bcfVersionProjectsProjectIdDocumentsPost(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
