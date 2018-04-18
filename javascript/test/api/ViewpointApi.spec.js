@@ -48,80 +48,80 @@
   }
 
   describe('ViewpointApi', function() {
-    describe('bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet', function() {
-      it('should call bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet
-        //instance.bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet', function() {
-      it('should call bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet
-        //instance.bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidViewpointsGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidViewpointsGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidViewpointsGet
-        //instance.bcfVersionProjectsProjectIdTopicsGuidViewpointsGet(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet
-        //instance.bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet
-        //instance.bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet
-        //instance.bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet
-        //instance.bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidViewpointsPost', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidViewpointsPost successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidViewpointsPost
-        //instance.bcfVersionProjectsProjectIdTopicsGuidViewpointsPost(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

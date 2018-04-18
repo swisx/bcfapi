@@ -76,17 +76,19 @@ var version = "version_example"; // {String} BFC Version
 
 var projectId = "projectId_example"; // {String} Project ID
 
-var guid = "guid_example"; // {String} Topic guid
+var topicGuid = "topicGuid_example"; // {String} Topic guid
+
+var commentGuid = "commentGuid_example"; // {String} Comment guid
 
 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 };
-api.bcfVersionProjectsProjectIdTopicsGuidCommentsGet(version, projectId, guid, callback);
+api.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete(version, projectId, topicGuid, commentGuid, callback);
 
 ```
 
@@ -96,15 +98,20 @@ All URIs are relative to *https://virtserver.swaggerhub.com/swisx/bcfAPI/1.0.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Bcfapi.CommentApi* | [**bcfVersionProjectsProjectIdTopicsGuidCommentsGet**](docs/CommentApi.md#bcfVersionProjectsProjectIdTopicsGuidCommentsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/comments | Retrieve a collection of all comments related to a topic
-*Bcfapi.CommentApi* | [**bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete**](docs/CommentApi.md#bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete) | **DELETE** /bcf/{version}/projects/{project_id}/topics/{guid}/comments/{guid} | Deletes a single comment.
-*Bcfapi.CommentApi* | [**bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet**](docs/CommentApi.md#bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/comments/{guid} | Retrieve a collection of all comments related to a topic
-*Bcfapi.CommentApi* | [**bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut**](docs/CommentApi.md#bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{guid}/comments/{guid} | Update a single comment
-*Bcfapi.CommentApi* | [**bcfVersionProjectsProjectIdTopicsGuidCommentsPost**](docs/CommentApi.md#bcfVersionProjectsProjectIdTopicsGuidCommentsPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{guid}/comments | Add a new comment to a topic.
-*Bcfapi.DocumentReferenceApi* | [**bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet**](docs/DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/document_references | Retrieve a collection of all document references to a topic.
-*Bcfapi.DocumentReferenceApi* | [**bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost**](docs/DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{guid}/document_references | Retrieve a collection of all document references to a topic.
-*Bcfapi.FileApi* | [**bcfVersionProjectsProjectIdTopicsGuidFilesGet**](docs/FileApi.md#bcfVersionProjectsProjectIdTopicsGuidFilesGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/files | Retrieve a collection of file references as topic header.
-*Bcfapi.FileApi* | [**bcfVersionProjectsProjectIdTopicsGuidFilesPut**](docs/FileApi.md#bcfVersionProjectsProjectIdTopicsGuidFilesPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{guid}/files | Update a collection of file references on the topic header.
+*Bcfapi.CommentApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete**](docs/CommentApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete) | **DELETE** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid} | Deletes a single comment.
+*Bcfapi.CommentApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet**](docs/CommentApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid} | Retrieve a collection of all comments related to a topic
+*Bcfapi.CommentApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut**](docs/CommentApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid} | Update a single comment
+*Bcfapi.CommentApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet**](docs/CommentApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments | Retrieve a collection of all comments related to a topic
+*Bcfapi.CommentApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost**](docs/CommentApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments | Add a new comment to a topic.
+*Bcfapi.CommentEventsApi* | [**bcfVersionProjectsProjectIdTopicsCommentsEventsGet**](docs/CommentEventsApi.md#bcfVersionProjectsProjectIdTopicsCommentsEventsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/comments/events | RRetrieve a collection of comment events related to a project.
+*Bcfapi.CommentEventsApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet**](docs/CommentEventsApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid}/events | RRetrieve a collection of comment events related to a project.
+*Bcfapi.DocumentApi* | [**bcfVersionProjectsProjectIdDocumentsDocumentGuidGet**](docs/DocumentApi.md#bcfVersionProjectsProjectIdDocumentsDocumentGuidGet) | **GET** /bcf/{version}/projects/{project_id}/documents/{document_guid} | Retrieves a document as binary file.
+*Bcfapi.DocumentApi* | [**bcfVersionProjectsProjectIdDocumentsGet**](docs/DocumentApi.md#bcfVersionProjectsProjectIdDocumentsGet) | **GET** /bcf/{version}/projects/{project_id}/documents | Retrieve a collection of all documents uploaded to a project.
+*Bcfapi.DocumentApi* | [**bcfVersionProjectsProjectIdDocumentsPost**](docs/DocumentApi.md#bcfVersionProjectsProjectIdDocumentsPost) | **POST** /bcf/{version}/projects/{project_id}/documents | Upload a document (binary file) to a project.
+*Bcfapi.DocumentReferenceApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet**](docs/DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references | Retrieve a collection of all document references to a topic.
+*Bcfapi.DocumentReferenceApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost**](docs/DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references | Retrieve a collection of all document references to a topic.
+*Bcfapi.FileApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet**](docs/FileApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/files | Retrieve a collection of file references as topic header.
+*Bcfapi.FileApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut**](docs/FileApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/files | Update a collection of file references on the topic header.
 *Bcfapi.ProjectApi* | [**bcfVersionProjectsGet**](docs/ProjectApi.md#bcfVersionProjectsGet) | **GET** /bcf/{version}/projects | Collection of projects
 *Bcfapi.ProjectApi* | [**bcfVersionProjectsProjectIdExtensionsGet**](docs/ProjectApi.md#bcfVersionProjectsProjectIdExtensionsGet) | **GET** /bcf/{version}/projects/{project_id}/extensions | 
 *Bcfapi.ProjectApi* | [**bcfVersionProjectsProjectIdGet**](docs/ProjectApi.md#bcfVersionProjectsProjectIdGet) | **GET** /bcf/{version}/projects/{project_id} | 
@@ -112,23 +119,25 @@ Class | Method | HTTP request | Description
 *Bcfapi.PublicApi* | [**bcfVersionAuthGet**](docs/PublicApi.md#bcfVersionAuthGet) | **GET** /bcf/{version}/auth | 
 *Bcfapi.PublicApi* | [**bcfVersionCurrentUserGet**](docs/PublicApi.md#bcfVersionCurrentUserGet) | **GET** /bcf/{version}/current-user | Get current user
 *Bcfapi.PublicApi* | [**bcfVersionsGet**](docs/PublicApi.md#bcfVersionsGet) | **GET** /bcf/versions | List of versions
-*Bcfapi.RelatedTopicApi* | [**bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet**](docs/RelatedTopicApi.md#bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/related_topics | Retrieve a collection of all related topics to a topic.
-*Bcfapi.RelatedTopicApi* | [**bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut**](docs/RelatedTopicApi.md#bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{guid}/related_topics | Add or update a collection of all related topics to a topic.
+*Bcfapi.RelatedTopicApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet**](docs/RelatedTopicApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/related_topics | Retrieve a collection of all related topics to a topic.
+*Bcfapi.RelatedTopicApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut**](docs/RelatedTopicApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/related_topics | Add or update a collection of all related topics to a topic.
 *Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsGet**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsGet) | **GET** /bcf/{version}/projects/{project_id}/topics | Retrieve a collection of topics related to a project
-*Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsGuidDelete**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsGuidDelete) | **DELETE** /bcf/{version}/projects/{project_id}/topics/{guid} | Deletes a single topic.
-*Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsGuidGet**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsGuidGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid} | Retrieve a specific topic.
-*Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsGuidPut**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsGuidPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{guid} | Modify a specific topic
-*Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsGuidSnippetGet**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsGuidSnippetGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/snippet | Retrieves a topics BIM-Snippet as binary file.
-*Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsGuidSnippetPut**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsGuidSnippetPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{guid}/snippet | Puts a new BIM Snippet binary file to a topic
 *Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsPost**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsPost) | **POST** /bcf/{version}/projects/{project_id}/topics | Add a new topic.
-*Bcfapi.ViewpointApi* | [**bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet**](docs/ViewpointApi.md#bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet) | **GET** /bcf/{version}/projects/{guid}/topics/{guid}/viewpoints/{guid}/bitmaps/{guid} | Retrieve a specific viewpoints bitmap image file (png or jpg).
-*Bcfapi.ViewpointApi* | [**bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet**](docs/ViewpointApi.md#bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet) | **GET** /bcf/{version}/projects/{guid}/topics/{guid}/viewpoints/{guid}/snapshot | Retrieve a viewpoints snapshot (png or jpg) as image file.
-*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsGuidViewpointsGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsGuidViewpointsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints | Retrieve a collection of all viewpoints related to a topic.
-*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid}/coloring | Retrieve a collection of all colored components in a viewpoint.
-*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid} | Retrieve a collection of all viewpoints related to a topic.
-*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid}/selection | Retrieve a collection of all selected components in a viewpoint.
-*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid}/visibility | Retrieve visibility of components in a viewpoint.
-*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsGuidViewpointsPost**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsGuidViewpointsPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints | Add a new viewpoint.
+*Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidDelete**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidDelete) | **DELETE** /bcf/{version}/projects/{project_id}/topics/{topic_guid} | Deletes a single topic.
+*Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidGet**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid} | Retrieve a specific topic.
+*Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidPut**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{topic_guid} | Modify a specific topic
+*Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/snippet | Retrieves a topics BIM-Snippet as binary file.
+*Bcfapi.TopicApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut**](docs/TopicApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/snippet | Puts a new BIM Snippet binary file to a topic
+*Bcfapi.TopicEventsApi* | [**bcfVersionProjectsProjectIdTopicsEventsGet**](docs/TopicEventsApi.md#bcfVersionProjectsProjectIdTopicsEventsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/events | Retrieve a collection of topic events related to a project.
+*Bcfapi.TopicEventsApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidEventsGet**](docs/TopicEventsApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidEventsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/events | Retrieve a collection of topic events related to a project.
+*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints | Retrieve a collection of all viewpoints related to a topic.
+*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints | Add a new viewpoint.
+*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/bitmaps/{bitmap_guid} | Retrieve a specific viewpoints bitmap image file (png or jpg).
+*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/coloring | Retrieve a collection of all colored components in a viewpoint.
+*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid} | Retrieve a collection of all viewpoints related to a topic.
+*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/selection | Retrieve a collection of all selected components in a viewpoint.
+*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/snapshot | Retrieve a viewpoints snapshot (png or jpg) as image file.
+*Bcfapi.ViewpointApi* | [**bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet**](docs/ViewpointApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/visibility | Retrieve visibility of components in a viewpoint.
 
 
 ## Documentation for Models

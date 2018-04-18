@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new Bcfapi.FileApi();
+    instance = new Bcfapi.CommentEventsApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,21 +47,21 @@
       object[property] = value;
   }
 
-  describe('FileApi', function() {
-    describe('bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet
-        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet(function(error) {
+  describe('CommentEventsApi', function() {
+    describe('bcfVersionProjectsProjectIdTopicsCommentsEventsGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsCommentsEventsGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsCommentsEventsGet
+        //instance.bcfVersionProjectsProjectIdTopicsCommentsEventsGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut
-        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

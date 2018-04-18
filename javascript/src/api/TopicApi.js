@@ -91,307 +91,6 @@ export default class TopicApi {
     }
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidDelete operation.
-     * @callback module:api/TopicApi~bcfVersionProjectsProjectIdTopicsGuidDeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Deletes a single topic.
-     * Deletes a single topic. This operation is only possible when the server returns the delete flag in the Topic authorization.
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
-     * @param {module:api/TopicApi~bcfVersionProjectsProjectIdTopicsGuidDeleteCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    bcfVersionProjectsProjectIdTopicsGuidDelete(version, projectId, guid, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidDelete");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidDelete");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidDelete");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = null;
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}', 'DELETE',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidGet operation.
-     * @callback module:api/TopicApi~bcfVersionProjectsProjectIdTopicsGuidGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/TopicGET} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Retrieve a specific topic.
-     * Retrieve a specific topic.
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
-     * @param {module:api/TopicApi~bcfVersionProjectsProjectIdTopicsGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/TopicGET}
-     */
-    bcfVersionProjectsProjectIdTopicsGuidGet(version, projectId, guid, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidGet");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidGet");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidGet");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = TopicGET;
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidPut operation.
-     * @callback module:api/TopicApi~bcfVersionProjectsProjectIdTopicsGuidPutCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/TopicGET} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Modify a specific topic
-     * Modify a specific topic, description similar to POST. This operation is only possible when the server returns the update flag in the Topic authorization
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
-     * @param {Object} opts Optional parameters
-     * @param {module:model/TopicPUT} opts.topicPUT 
-     * @param {module:api/TopicApi~bcfVersionProjectsProjectIdTopicsGuidPutCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/TopicGET}
-     */
-    bcfVersionProjectsProjectIdTopicsGuidPut(version, projectId, guid, opts, callback) {
-      opts = opts || {};
-      let postBody = opts['topicPUT'];
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidPut");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidPut");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidPut");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = TopicGET;
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidSnippetGet operation.
-     * @callback module:api/TopicApi~bcfVersionProjectsProjectIdTopicsGuidSnippetGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/BimSnippet} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Retrieves a topics BIM-Snippet as binary file.
-     * Retrieves a topics BIM-Snippet as binary file.
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
-     * @param {module:api/TopicApi~bcfVersionProjectsProjectIdTopicsGuidSnippetGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/BimSnippet}
-     */
-    bcfVersionProjectsProjectIdTopicsGuidSnippetGet(version, projectId, guid, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidSnippetGet");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidSnippetGet");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidSnippetGet");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = BimSnippet;
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/snippet', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidSnippetPut operation.
-     * @callback module:api/TopicApi~bcfVersionProjectsProjectIdTopicsGuidSnippetPutCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Puts a new BIM Snippet binary file to a topic
-     * Puts a new BIM Snippet binary file to a topic. If this is used, the parent topics BIM Snippet property is_external must be set to false and the reference must be the file name with extension. This operation is only possible when the server returns the updateBimSnippet flag in the Topic authorization. THERE IS NO BODY EXAMPLE!
-     * @param {module:model/String} version BFC Version
-     * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
-     * @param {module:api/TopicApi~bcfVersionProjectsProjectIdTopicsGuidSnippetPutCallback} callback The callback function, accepting three arguments: error, data, response
-     */
-    bcfVersionProjectsProjectIdTopicsGuidSnippetPut(version, projectId, guid, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidSnippetPut");
-      }
-
-      // verify the required parameter 'projectId' is set
-      if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidSnippetPut");
-      }
-
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidSnippetPut");
-      }
-
-
-      let pathParams = {
-        'version': version,
-        'project_id': projectId,
-        'guid': guid
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = null;
-
-      return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/snippet', 'PUT',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsPost operation.
      * @callback module:api/TopicApi~bcfVersionProjectsProjectIdTopicsPostCallback
      * @param {String} error Error message, if any.
@@ -442,6 +141,307 @@ export default class TopicApi {
 
       return this.apiClient.callApi(
         '/bcf/{version}/projects/{project_id}/topics', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidDelete operation.
+     * @callback module:api/TopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidDeleteCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Deletes a single topic.
+     * Deletes a single topic. This operation is only possible when the server returns the delete flag in the Topic authorization.
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {module:api/TopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidDelete(version, projectId, topicGuid, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidDelete");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidDelete");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidDelete");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidGet operation.
+     * @callback module:api/TopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidGetCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TopicGET} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve a specific topic.
+     * Retrieve a specific topic.
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {module:api/TopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TopicGET}
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidGet(version, projectId, topicGuid, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidGet");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidGet");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidGet");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TopicGET;
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidPut operation.
+     * @callback module:api/TopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidPutCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TopicGET} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Modify a specific topic
+     * Modify a specific topic, description similar to POST. This operation is only possible when the server returns the update flag in the Topic authorization
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {Object} opts Optional parameters
+     * @param {module:model/TopicPUT} opts.topicPUT 
+     * @param {module:api/TopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TopicGET}
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidPut(version, projectId, topicGuid, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['topicPUT'];
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidPut");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidPut");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidPut");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = TopicGET;
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet operation.
+     * @callback module:api/TopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGetCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/BimSnippet} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieves a topics BIM-Snippet as binary file.
+     * Retrieves a topics BIM-Snippet as binary file.
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {module:api/TopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/BimSnippet}
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet(version, projectId, topicGuid, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = BimSnippet;
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/snippet', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut operation.
+     * @callback module:api/TopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPutCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Puts a new BIM Snippet binary file to a topic
+     * Puts a new BIM Snippet binary file to a topic. If this is used, the parent topics BIM Snippet property is_external must be set to false and the reference must be the file name with extension. This operation is only possible when the server returns the updateBimSnippet flag in the Topic authorization. THERE IS NO BODY EXAMPLE!
+     * @param {module:model/String} version BFC Version
+     * @param {String} projectId Project ID
+     * @param {String} topicGuid Topic guid
+     * @param {module:api/TopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPutCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut(version, projectId, topicGuid, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'version' is set
+      if (version === undefined || version === null) {
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut");
+      }
+
+      // verify the required parameter 'projectId' is set
+      if (projectId === undefined || projectId === null) {
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut");
+      }
+
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut");
+      }
+
+
+      let pathParams = {
+        'version': version,
+        'project_id': projectId,
+        'topic_guid': topicGuid
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/snippet', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

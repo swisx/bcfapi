@@ -48,20 +48,20 @@
   }
 
   describe('DocumentReferenceApi', function() {
-    describe('bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet
-        //instance.bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost
-        //instance.bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

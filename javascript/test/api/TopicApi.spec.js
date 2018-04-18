@@ -58,60 +58,60 @@
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidDelete', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidDelete successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidDelete
-        //instance.bcfVersionProjectsProjectIdTopicsGuidDelete(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('bcfVersionProjectsProjectIdTopicsGuidGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidGet
-        //instance.bcfVersionProjectsProjectIdTopicsGuidGet(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('bcfVersionProjectsProjectIdTopicsGuidPut', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidPut successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidPut
-        //instance.bcfVersionProjectsProjectIdTopicsGuidPut(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('bcfVersionProjectsProjectIdTopicsGuidSnippetGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidSnippetGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidSnippetGet
-        //instance.bcfVersionProjectsProjectIdTopicsGuidSnippetGet(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('bcfVersionProjectsProjectIdTopicsGuidSnippetPut', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidSnippetPut successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidSnippetPut
-        //instance.bcfVersionProjectsProjectIdTopicsGuidSnippetPut(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('bcfVersionProjectsProjectIdTopicsPost', function() {
       it('should call bcfVersionProjectsProjectIdTopicsPost successfully', function(done) {
         //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsPost
         //instance.bcfVersionProjectsProjectIdTopicsPost(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidDelete', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidDelete successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidDelete
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidDelete(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidGet(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidPut', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidPut successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidPut
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidPut(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

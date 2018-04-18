@@ -35,8 +35,8 @@ export default class RelatedTopicApi {
 
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet operation.
-     * @callback module:api/RelatedTopicApi~bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet operation.
+     * @callback module:api/RelatedTopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/RelatedTopicGET>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -47,33 +47,33 @@ export default class RelatedTopicApi {
      * Retrieve a collection of all related topics to a topic.
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
-     * @param {module:api/RelatedTopicApi~bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} topicGuid Topic guid
+     * @param {module:api/RelatedTopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/RelatedTopicGET>}
      */
-    bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet(version, projectId, guid, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet(version, projectId, topicGuid, callback) {
       let postBody = null;
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid
       };
       let queryParams = {
       };
@@ -88,15 +88,15 @@ export default class RelatedTopicApi {
       let returnType = [RelatedTopicGET];
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/related_topics', 'GET',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/related_topics', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut operation.
-     * @callback module:api/RelatedTopicApi~bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutCallback
+     * Callback function to receive the result of the bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut operation.
+     * @callback module:api/RelatedTopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/RelatedTopicGET>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -107,36 +107,36 @@ export default class RelatedTopicApi {
      * Add or update a collection of all related topics to a topic. This operation is only possible when the server returns the updateRelatedTopics flag in the Topic authorization.
      * @param {module:model/String} version BFC Version
      * @param {String} projectId Project ID
-     * @param {String} guid Topic guid
+     * @param {String} topicGuid Topic guid
      * @param {Object} opts Optional parameters
      * @param {module:model/RelatedTopicGET} opts.relatedTopicPUT 
-     * @param {module:api/RelatedTopicApi~bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/RelatedTopicApi~bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/RelatedTopicGET>}
      */
-    bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut(version, projectId, guid, opts, callback) {
+    bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut(version, projectId, topicGuid, opts, callback) {
       opts = opts || {};
       let postBody = opts['relatedTopicPUT'];
 
       // verify the required parameter 'version' is set
       if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut");
+        throw new Error("Missing the required parameter 'version' when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut");
       }
 
       // verify the required parameter 'projectId' is set
       if (projectId === undefined || projectId === null) {
-        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut");
+        throw new Error("Missing the required parameter 'projectId' when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut");
       }
 
-      // verify the required parameter 'guid' is set
-      if (guid === undefined || guid === null) {
-        throw new Error("Missing the required parameter 'guid' when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut");
+      // verify the required parameter 'topicGuid' is set
+      if (topicGuid === undefined || topicGuid === null) {
+        throw new Error("Missing the required parameter 'topicGuid' when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut");
       }
 
 
       let pathParams = {
         'version': version,
         'project_id': projectId,
-        'guid': guid
+        'topic_guid': topicGuid
       };
       let queryParams = {
       };
@@ -151,7 +151,7 @@ export default class RelatedTopicApi {
       let returnType = [RelatedTopicGET];
 
       return this.apiClient.callApi(
-        '/bcf/{version}/projects/{project_id}/topics/{guid}/related_topics', 'PUT',
+        '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/related_topics', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

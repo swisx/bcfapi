@@ -4,13 +4,13 @@ All URIs are relative to *https://virtserver.swaggerhub.com/swisx/bcfAPI/1.0.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bcfVersionProjectsProjectIdTopicsGuidFilesGet**](FileApi.md#bcfVersionProjectsProjectIdTopicsGuidFilesGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/files | Retrieve a collection of file references as topic header.
-[**bcfVersionProjectsProjectIdTopicsGuidFilesPut**](FileApi.md#bcfVersionProjectsProjectIdTopicsGuidFilesPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{guid}/files | Update a collection of file references on the topic header.
+[**bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet**](FileApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/files | Retrieve a collection of file references as topic header.
+[**bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut**](FileApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/files | Update a collection of file references on the topic header.
 
 
-<a name="bcfVersionProjectsProjectIdTopicsGuidFilesGet"></a>
-# **bcfVersionProjectsProjectIdTopicsGuidFilesGet**
-> [FileGET] bcfVersionProjectsProjectIdTopicsGuidFilesGet(version, projectId, guid)
+<a name="bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet"></a>
+# **bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet**
+> [FileGET] bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet(version, projectId, topicGuid, )
 
 Retrieve a collection of file references as topic header.
 
@@ -26,10 +26,10 @@ let version = "version_example"; // String | BFC Version
 
 let projectId = "projectId_example"; // String | Project ID
 
-let guid = "guid_example"; // String | Topic guid
+let topicGuid = "topicGuid_example"; // String | Topic guid
 
 
-apiInstance.bcfVersionProjectsProjectIdTopicsGuidFilesGet(version, projectId, guid, (error, data, response) => {
+apiInstance.bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet(version, projectId, topicGuid, , (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **String**| BFC Version | 
  **projectId** | **String**| Project ID | 
- **guid** | **String**| Topic guid | 
+ **topicGuid** | **String**| Topic guid | 
 
 ### Return type
 
@@ -59,9 +59,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="bcfVersionProjectsProjectIdTopicsGuidFilesPut"></a>
-# **bcfVersionProjectsProjectIdTopicsGuidFilesPut**
-> FileGET bcfVersionProjectsProjectIdTopicsGuidFilesPut(version, projectId, guid, opts)
+<a name="bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut"></a>
+# **bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut**
+> FileGET bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut(version, projectId, topicGuid, , opts)
 
 Update a collection of file references on the topic header.
 
@@ -77,13 +77,13 @@ let version = "version_example"; // String | BFC Version
 
 let projectId = "projectId_example"; // String | Project ID
 
-let guid = "guid_example"; // String | Topic guid
+let topicGuid = "topicGuid_example"; // String | Topic guid
 
 let opts = { 
   'filePUT': new Bcfapi.FilePUT() // FilePUT | 
 };
 
-apiInstance.bcfVersionProjectsProjectIdTopicsGuidFilesPut(version, projectId, guid, opts, (error, data, response) => {
+apiInstance.bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut(version, projectId, topicGuid, , opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **String**| BFC Version | 
  **projectId** | **String**| Project ID | 
- **guid** | **String**| Topic guid | 
+ **topicGuid** | **String**| Topic guid | 
  **filePUT** | [**FilePUT**](FilePUT.md)|  | [optional] 
 
 ### Return type

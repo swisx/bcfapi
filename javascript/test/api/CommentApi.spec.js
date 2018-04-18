@@ -48,50 +48,50 @@
   }
 
   describe('CommentApi', function() {
-    describe('bcfVersionProjectsProjectIdTopicsGuidCommentsGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidCommentsGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidCommentsGet
-        //instance.bcfVersionProjectsProjectIdTopicsGuidCommentsGet(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete
-        //instance.bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet
-        //instance.bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut
-        //instance.bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('bcfVersionProjectsProjectIdTopicsGuidCommentsPost', function() {
-      it('should call bcfVersionProjectsProjectIdTopicsGuidCommentsPost successfully', function(done) {
-        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsGuidCommentsPost
-        //instance.bcfVersionProjectsProjectIdTopicsGuidCommentsPost(function(error) {
+    describe('bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost', function() {
+      it('should call bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost successfully', function(done) {
+        //uncomment below and update the code to test bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost
+        //instance.bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

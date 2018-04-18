@@ -4,13 +4,13 @@ All URIs are relative to *https://virtserver.swaggerhub.com/swisx/bcfAPI/1.0.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet**](DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{guid}/document_references | Retrieve a collection of all document references to a topic.
-[**bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost**](DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{guid}/document_references | Retrieve a collection of all document references to a topic.
+[**bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet**](DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references | Retrieve a collection of all document references to a topic.
+[**bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost**](DocumentReferenceApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost) | **POST** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references | Retrieve a collection of all document references to a topic.
 
 
-<a name="bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet"></a>
-# **bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet**
-> [DocumentReferenceGET] bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet(version, projectId, guid)
+<a name="bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet"></a>
+# **bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet**
+> [DocumentReferenceGET] bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet(version, projectId, topicGuid, )
 
 Retrieve a collection of all document references to a topic.
 
@@ -26,10 +26,10 @@ let version = "version_example"; // String | BFC Version
 
 let projectId = "projectId_example"; // String | Project ID
 
-let guid = "guid_example"; // String | Topic guid
+let topicGuid = "topicGuid_example"; // String | Topic guid
 
 
-apiInstance.bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesGet(version, projectId, guid, (error, data, response) => {
+apiInstance.bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet(version, projectId, topicGuid, , (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **String**| BFC Version | 
  **projectId** | **String**| Project ID | 
- **guid** | **String**| Topic guid | 
+ **topicGuid** | **String**| Topic guid | 
 
 ### Return type
 
@@ -59,9 +59,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost"></a>
-# **bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost**
-> [DocumentReferenceGET] bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost(version, projectId, guid, opts)
+<a name="bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost"></a>
+# **bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost**
+> [DocumentReferenceGET] bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost(version, projectId, topicGuid, , opts)
 
 Retrieve a collection of all document references to a topic.
 
@@ -77,13 +77,13 @@ let version = "version_example"; // String | BFC Version
 
 let projectId = "projectId_example"; // String | Project ID
 
-let guid = "guid_example"; // String | Topic guid
+let topicGuid = "topicGuid_example"; // String | Topic guid
 
 let opts = { 
   'documentReferencePOST': new Bcfapi.DocumentReferencePOST() // DocumentReferencePOST | 
 };
 
-apiInstance.bcfVersionProjectsProjectIdTopicsGuidDocumentReferencesPost(version, projectId, guid, opts, (error, data, response) => {
+apiInstance.bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost(version, projectId, topicGuid, , opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **String**| BFC Version | 
  **projectId** | **String**| Project ID | 
- **guid** | **String**| Topic guid | 
+ **topicGuid** | **String**| Topic guid | 
  **documentReferencePOST** | [**DocumentReferencePOST**](DocumentReferencePOST.md)|  | [optional] 
 
 ### Return type
