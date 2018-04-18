@@ -35,7 +35,6 @@ use \Swagger\Client\ObjectSerializer;
  * Error Class Doc Comment
  *
  * @category Class
- * @description Schema for error, BCF REST API.
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
@@ -49,7 +48,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'error';
+    protected static $swaggerModelName = 'Error';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,6 +56,7 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'code' => 'string',
         'message' => 'string'
     ];
 
@@ -66,6 +66,7 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'code' => null,
         'message' => null
     ];
 
@@ -96,6 +97,7 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'code' => 'code',
         'message' => 'message'
     ];
 
@@ -105,6 +107,7 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'code' => 'setCode',
         'message' => 'setMessage'
     ];
 
@@ -114,6 +117,7 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'code' => 'getCode',
         'message' => 'getMessage'
     ];
 
@@ -177,6 +181,7 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
@@ -189,6 +194,12 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -201,9 +212,39 @@ class Error implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        if ($this->container['code'] === null) {
+            return false;
+        }
+        if ($this->container['message'] === null) {
+            return false;
+        }
         return true;
     }
 
+
+    /**
+     * Gets code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param string $code code
+     *
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        $this->container['code'] = $code;
+
+        return $this;
+    }
 
     /**
      * Gets message
