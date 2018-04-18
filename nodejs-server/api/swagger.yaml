@@ -1,0 +1,2912 @@
+---
+swagger: "2.0"
+info:
+  description: "A BCF API"
+  version: "1.0.0"
+  title: "BCFAPI"
+host: "virtserver.swaggerhub.com"
+basePath: "/swisx/bcfAPI/1.0.0"
+tags:
+- name: "public"
+  description: "Public Services"
+- name: "project"
+  description: "Project Services"
+- name: "topic"
+  description: "Topic Services"
+- name: "file"
+  description: "File Services"
+- name: "comment"
+  description: "Comment Services"
+- name: "viewpoint"
+  description: "Viewpoint Services"
+- name: "related topic"
+  description: "Related Topics Services"
+- name: "document reference"
+  description: "Document Reference Services"
+- name: "document"
+  description: "Document Services"
+- name: "topic events"
+  description: "Topics Events Services"
+- name: "comment events"
+  description: "Comments Events Services"
+schemes:
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /bcf/versions:
+    get:
+      tags:
+      - "public"
+      summary: "List of versions"
+      description: "Returns a list of all supported BCF API versions of the server."
+      operationId: "bcfVersionsGET"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/versions_GET"
+          examples:
+            application/json:
+            - version_id: "1.0"
+              detailed_version: "https://github.com/BuildingSMART/BCF-API"
+            - version_id: "2.1"
+              detailed_version: "https://github.com/BuildingSMART/BCF-API"
+      x-swagger-router-controller: "Public"
+  /bcf/{version}/auth:
+    get:
+      tags:
+      - "public"
+      description: "Obtaining Authentication Information"
+      operationId: "bcfVersionAuthGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/auth_GET"
+          examples:
+            application/json:
+              oauth2_auth_url: "https://example.com/bcf/oauth2/auth"
+              oauth2_token_url: "https://example.com/bcf/oauth2/token"
+              oauth2_dynamic_client_reg_url: "https://example.com/bcf/oauth2/reg"
+              http_basic_supported: true
+              supported_oauth2_flows:
+              - "authorization_code_grant"
+              - "implicit_grant"
+              - "resource_owner_password_credentials_grant"
+      x-swagger-router-controller: "Public"
+  /bcf/{version}/current-user:
+    get:
+      tags:
+      - "public"
+      summary: "Get current user"
+      description: "Get current user"
+      operationId: "bcfVersionCurrent_userGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/user_GET"
+          examples:
+            application/json:
+              id: "Architect@example.com"
+              name: "John Doe"
+        400:
+          description: "Bad request"
+          schema:
+            $ref: "#/definitions/Error"
+        404:
+          description: "Not found"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Public"
+  /bcf/{version}/projects:
+    get:
+      tags:
+      - "project"
+      summary: "Collection of projects"
+      description: "Retrieve a collection of projects where the currently logged on\
+        \ user has access to."
+      operationId: "bcfVersionProjectsGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/project_GET"
+          examples:
+            application/json:
+            - project_id: "F445F4F2-4D02-4B2A-B612-5E456BEF9137"
+              name: "Example project 1"
+              authorization:
+                project_actions:
+                - "createTopic"
+                - "createDocument"
+            - project_id: "A233FBB2-3A3B-EFF4-C123-DE22ABC8414"
+              name: "Example project 2"
+              authorization:
+                project_actions: []
+      x-swagger-router-controller: "Project"
+  /bcf/{version}/projects/{project_id}:
+    get:
+      tags:
+      - "project"
+      description: "Retrieve a specific project."
+      operationId: "bcfVersionProjectsProject_idGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/project_GET"
+          examples:
+            application/json:
+              project_id: "B724AAC3-5B2A-234A-D143-AE33CC18414"
+              name: "Example project 3"
+              authorization:
+                project_actions:
+                - "update"
+                - "updateProjectExtensions"
+      x-swagger-router-controller: "Project"
+    put:
+      tags:
+      - "project"
+      summary: "Update Project Name"
+      description: "Modify a specific project. This operation is only possible when\
+        \ the server returns the update flag in the Project authorization,"
+      operationId: "bcfVersionProjectsProject_idPUT"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Update name"
+        required: false
+        schema:
+          $ref: "#/definitions/body"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/project_GET"
+          examples:
+            application/json:
+              project_id: "B724AAC3-5B2A-234A-D143-AE33CC18414"
+              name: "Example project 3"
+              authorization:
+                project_actions:
+                - "update"
+                - "updateProjectExtensions"
+      x-swagger-router-controller: "Project"
+  /bcf/{version}/projects/{project_id}/extensions:
+    get:
+      tags:
+      - "project"
+      description: "Retrieve a specific project."
+      operationId: "bcfVersionProjectsProject_idExtensionsGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/project_GET"
+          examples:
+            application/json:
+              topic_type:
+              - "Information"
+              - "Error"
+              topic_status:
+              - "Open"
+              - "Closed"
+              - "ReOpened"
+              topic_label:
+              - "Architecture"
+              - "Structural"
+              - "MEP"
+              snippet_type:
+              - ".ifc"
+              - ".csv"
+              priority:
+              - "Low"
+              - "Medium"
+              - "High"
+              user_id_type:
+              - "Architect@example.com"
+              - "BIM-Manager@example.com"
+              - "bob_heater@example.com"
+              stage:
+              - "Preliminary Planning End"
+              - "Construction Start"
+              - "Construction End"
+              project_actions:
+              - "update"
+              - "createTopic"
+              - "createDocument"
+              - "updateProjectExtensions"
+              topic_actions:
+              - "update"
+              - "updateBimSnippet"
+              - "updateRelatedTopics"
+              - "updateDocumentReferences"
+              - "updateFiles"
+              - "createComment"
+              - "createViewpoint"
+              comment_actions:
+              - "update"
+      x-swagger-router-controller: "Project"
+  /bcf/{version}/projects/{project_id}/topics:
+    get:
+      tags:
+      - "topic"
+      summary: "Retrieve a collection of topics related to a project"
+      description: "Retrieve a collection of topics related to a project (default\
+        \ sort order is creation_date)."
+      operationId: "bcfVersionProjectsProject_idTopicsGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/topic_GET"
+          examples:
+            application/json:
+            - guid: "A245F4F2-2C01-B43B-B612-5E456BEF8116"
+              creation_author: "Architect@example.com"
+              title: "Example topic 1"
+              labels:
+              - "Architecture"
+              - "Structural"
+              creation_date: "2013-10-21T17:34:22.409Z"
+            - guid: "A211FCC2-3A3B-EAA4-C321-DE22ABC8414"
+              creation_author: "Architect@example.com"
+              title: "Example topic 2"
+              labels:
+              - "Architecture"
+              - "Heating"
+              - "Electrical"
+              creation_date: "2014-11-19T14:24:11.316Z"
+      x-swagger-router-controller: "Topic"
+    post:
+      tags:
+      - "topic"
+      summary: "Add a new topic."
+      description: "Add a new topic. This operation is only possible when the server\
+        \ returns the createTopic flag in the Project authorization."
+      operationId: "bcfVersionProjectsProject_idTopicsPOST"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "Topic_POST"
+        required: false
+        schema:
+          $ref: "#/definitions/Topic_POST"
+      responses:
+        201:
+          description: "Created"
+          schema:
+            $ref: "#/definitions/topic_GET"
+          examples:
+            application/json:
+              guid: "A245F4F2-2C01-B43B-B612-5E456BEF8116"
+              creation_author: "Architect@example.com"
+              creation_date: "2016-08-01T17:34:22.409Z"
+              topic_type: "Clash"
+              topic_status: "open"
+              title: "Example topic 3"
+              priority: "high"
+              labels:
+              - "Architecture"
+              - "Heating"
+              assigned_to: "harry.muster@example.com"
+              bim_snippet:
+                snippet_type: "clash"
+                is_external: true
+                reference: "https://example.com/bcf/1.0/ADFE23AA11BCFF444122BB"
+                reference_schema: "https://example.com/bcf/1.0/clash.xsd"
+      x-swagger-router-controller: "Topic"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}:
+    get:
+      tags:
+      - "topic"
+      summary: "Retrieve a specific topic."
+      description: "Retrieve a specific topic."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/topic_GET"
+          examples:
+            application/json:
+              guid: "B345F4F2-3A04-B43B-A713-5E456BEF8228"
+              creation_author: "Architect@example.com"
+              creation_date: "2016-08-01T17:34:22.409Z"
+              topic_type: "Clash"
+              topic_status: "open"
+              title: "Example topic 3"
+              priority: "high"
+              labels:
+              - "Architecture"
+              - "Heating"
+              assigned_to: "harry.muster@example.com"
+              bim_snippet:
+                snippet_type: "clash"
+                is_external: true
+                reference: "https://example.com/bcf/1.0/ADFE23AA11BCFF444122BB"
+                reference_schema: "https://example.com/bcf/1.0/clash.xsd"
+              authorization:
+                topic_actions:
+                - "createComment"
+                - "createViewpoint"
+      x-swagger-router-controller: "Topic"
+    put:
+      tags:
+      - "topic"
+      summary: "Modify a specific topic"
+      description: "Modify a specific topic, description similar to POST. This operation\
+        \ is only possible when the server returns the update flag in the Topic authorization"
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidPUT"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "Topic_PUT"
+        required: false
+        schema:
+          $ref: "#/definitions/Topic_PUT"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/topic_GET"
+          examples:
+            application/json: null
+      x-swagger-router-controller: "Topic"
+    delete:
+      tags:
+      - "topic"
+      summary: "Deletes a single topic."
+      description: "Deletes a single topic. This operation is only possible when the\
+        \ server returns the delete flag in the Topic authorization."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidDELETE"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+      x-swagger-router-controller: "Topic"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/snippet:
+    get:
+      tags:
+      - "topic"
+      summary: "Retrieves a topics BIM-Snippet as binary file."
+      description: "Retrieves a topics BIM-Snippet as binary file."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidSnippetGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/bim_snippet"
+          examples:
+            application/json:
+              bim_snippet:
+                snippet_type: "clash"
+                is_external: true
+                reference: "https://example.com/bcf/1.0/ADFE23AA11BCFF444122BB"
+                reference_schema: "https://example.com/bcf/1.0/clash.xsd"
+      x-swagger-router-controller: "Topic"
+    put:
+      tags:
+      - "topic"
+      summary: "Puts a new BIM Snippet binary file to a topic"
+      description: "Puts a new BIM Snippet binary file to a topic. If this is used,\
+        \ the parent topics BIM Snippet property is_external must be set to false\
+        \ and the reference must be the file name with extension. This operation is\
+        \ only possible when the server returns the updateBimSnippet flag in the Topic\
+        \ authorization. THERE IS NO BODY EXAMPLE!"
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidSnippetPUT"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+      x-swagger-router-controller: "Topic"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/files:
+    get:
+      tags:
+      - "file"
+      summary: "Retrieve a collection of file references as topic header."
+      description: "Retrieve a collection of file references as topic header."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidFilesGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/file_GET"
+          examples:
+            application/json:
+            - ifc_project: "0J$yPqHBD12v72y4qF6XcD"
+              file_name: "OfficeBuilding_Architecture_0001.ifc"
+              reference: "https://example.com/files/0J$yPqHBD12v72y4qF6XcD_0001.ifc"
+            - ifc_project: "3hwBHP91jBRwPsmyf$3Hea"
+              file_name: "OfficeBuilding_Heating_0003.ifc"
+              reference: "cf37bae6-0900-46be-b37f-b34754fe0b4a"
+      x-swagger-router-controller: "File"
+    put:
+      tags:
+      - "file"
+      summary: "Update a collection of file references on the topic header."
+      description: "Update a collection of file references on the topic header. This\
+        \ operation is only possible when the server returns the updateFiles flag\
+        \ in the Topic authorization."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidFilesPUT"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "File_PUT"
+        required: false
+        schema:
+          $ref: "#/definitions/File_PUT"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/file_GET"
+          examples:
+            application/json:
+            - ifc_project: "0J$yPqHBD12v72y4qF6XcD"
+              file_name: "OfficeBuilding_Architecture_0001.ifc"
+              reference: "https://example.com/files/0J$yPqHBD12v72y4qF6XcD_0001.ifc"
+            - ifc_project: "3hwBHP91jBRwPsmyf$3Hea"
+              file_name: "OfficeBuilding_Heating_0003.ifc"
+              reference: "https://example.com/files/3hwBHP91jBRwPsmyf$3Hea_0003.ifc"
+      x-swagger-router-controller: "File"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments:
+    get:
+      tags:
+      - "comment"
+      summary: "Retrieve a collection of all comments related to a topic"
+      description: "Retrieve a collection of all comments related to a topic (default\
+        \ ordering is date)."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidCommentsGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/comment_GET"
+          examples:
+            application/json:
+            - guid: "C4215F4D-AC45-A43A-D615-AA456BEF832B"
+              date: "2016-08-01T12:34:22.409Z"
+              author: "max.muster@example.com"
+              comment: "Clash found"
+              topic_guid: "B345F4F2-3A04-B43B-A713-5E456BEF8228"
+              authorization:
+                comment_actions:
+                - "update"
+            - guid: "A333FCA8-1A31-CAAC-A321-BB33ABC8414"
+              date: "2016-08-01T14:24:11.316Z"
+              author: "bob.heater@example.com"
+              comment: "will rework the heating model"
+              topic_guid: "B345F4F2-3A04-B43B-A713-5E456BEF8228"
+      x-swagger-router-controller: "Comment"
+    post:
+      tags:
+      - "comment"
+      summary: "Add a new comment to a topic."
+      description: "Add a new comment to a topic. This operation is only possible\
+        \ when the server returns the createComment flag in the Topic authorization."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidCommentsPOST"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "comment_POST"
+        required: false
+        schema:
+          $ref: "#/definitions/comment_POST"
+      responses:
+        201:
+          description: "Created"
+          schema:
+            $ref: "#/definitions/comment_GET"
+          examples:
+            appllication/json:
+              guid: "A333FCA8-1A31-CAAC-A321-BB33ABC8414"
+              date: "2016-08-01T14:24:11.316Z"
+              author: "bob.heater@example.com"
+              comment: "will rework the heating model"
+              topic_guid: "B345F4F2-3A04-B43B-A713-5E456BEF8228"
+      x-swagger-router-controller: "Comment"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid}:
+    get:
+      tags:
+      - "comment"
+      summary: "Retrieve a collection of all comments related to a topic"
+      description: "Retrieve a collection of all comments related to a topic (default\
+        \ ordering is date)."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidCommentsComment_guidGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - name: "comment_guid"
+        in: "path"
+        description: "Comment guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/comment_GET"
+          examples:
+            application/json:
+              guid: "A333FCA8-1A31-CAAC-A321-BB33ABC8414"
+              date: "2016-08-01T14:24:11.316Z"
+              author: "bob.heater@example.com"
+              comment: "will rework the heating model"
+              topic_guid: "B345F4F2-3A04-B43B-A713-5E456BEF8228"
+      x-swagger-router-controller: "Comment"
+    put:
+      tags:
+      - "comment"
+      summary: "Update a single comment"
+      description: "Update a single comment, description similar to POST. This operation\
+        \ is only possible when the server returns the update flag in the Comment\
+        \ authorization."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidCommentsComment_guidPUT"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - name: "comment_guid"
+        in: "path"
+        description: "Comment guid"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "comment_PUT"
+        required: false
+        schema:
+          $ref: "#/definitions/comment_PUT"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/comment_GET"
+          examples:
+            application/json:
+              guid: "A333FCA8-1A31-CAAC-A321-BB33ABC8414"
+              date: "2016-08-01T14:24:11.316Z"
+              author: "bob.heater@example.com"
+              modified_date: "2016-08-01T19:24:11.316Z"
+              modified_author: "bob.heater@example.com"
+              comment: "will rework the heating model and fix the ventilation"
+              topic_guid: "B345F4F2-3A04-B43B-A713-5E456BEF8228"
+      x-swagger-router-controller: "Comment"
+    delete:
+      tags:
+      - "comment"
+      summary: "Deletes a single comment."
+      description: "Deletes a single comment. This operation is only possible when\
+        \ the server returns the delete flag in the Comment authorization."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidCommentsComment_guidDELETE"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - name: "comment_guid"
+        in: "path"
+        description: "Comment guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+      x-swagger-router-controller: "Comment"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints:
+    get:
+      tags:
+      - "viewpoint"
+      summary: "Retrieve a collection of all viewpoints related to a topic."
+      description: "Retrieve a collection of all viewpoints related to a topic."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidViewpointsGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/viewpoint_GET"
+          examples:
+            application/json:
+            - guid: "b24a82e9-f67b-43b8-bda0-4946abf39624"
+              perspective_camera:
+                camera_view_point:
+                  x: 0
+                  y: 0
+                  z: 0
+                camera_direction:
+                  x: 1
+                  y: 1
+                  z: 2
+                camera_up_vector:
+                  x: 0
+                  y: 0
+                  z: 1
+                field_of_view: 90
+              lines:
+              - start_point:
+                  x: 2
+                  y: 1
+                  z: 1
+                end_point:
+                  x: 0
+                  y: 1
+                  z: 0.6999999999999999555910790149937383830547332763671875
+              clipping_planes:
+              - location:
+                  x: 0.6999999999999999555910790149937383830547332763671875
+                  y: 0.299999999999999988897769753748434595763683319091796875
+                  z: -0.200000000000000011102230246251565404236316680908203125
+                direction:
+                  x: 1
+                  y: 0.40000000000000002220446049250313080847263336181640625
+                  z: 0.1000000000000000055511151231257827021181583404541015625
+            - guid: "a11a82e7-e66c-34b4-ada1-5846abf39133"
+              perspective_camera:
+                camera_view_point:
+                  x: 0
+                  y: 0
+                  z: 0
+                camera_direction:
+                  x: 1
+                  y: 1
+                  z: 2
+                camera_up_vector:
+                  x: 0
+                  y: 0
+                  z: 1
+                field_of_view: 90
+              lines:
+              - start_point:
+                  x: 1
+                  y: 1
+                  z: 1
+                end_point:
+                  x: 0
+                  y: 0
+                  z: 0
+              clipping_planes:
+              - location:
+                  x: 0.5
+                  y: 0.5
+                  z: 0.5
+                direction:
+                  x: 1
+                  y: 0
+                  z: 0
+      x-swagger-router-controller: "Viewpoint"
+    post:
+      tags:
+      - "viewpoint"
+      summary: "Add a new viewpoint."
+      description: "Add a new viewpoint. Viewpoints are immutable, meaning that they\
+        \ should never change. Requirements for different visualizations should be\
+        \ handled by creating new viewpoint elements. This operation is only possible\
+        \ when the server returns the createViewpoint flag in the Topic authorization."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidViewpointsPOST"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "viewpoint_POST"
+        required: false
+        schema:
+          $ref: "#/definitions/viewpoint_POST"
+      responses:
+        201:
+          description: "Created"
+          schema:
+            $ref: "#/definitions/viewpoint_GET"
+          examples:
+            appllication/json:
+              guid: "a11a82e7-e66c-34b4-ada1-5846abf39133"
+              index: 10
+              perspective_camera:
+                camera_view_point:
+                  x: 0
+                  y: 0
+                  z: 0
+                camera_direction:
+                  x: 1
+                  y: 1
+                  z: 2
+                camera_up_vector:
+                  x: 0
+                  y: 0
+                  z: 1
+                field_of_view: 90
+              lines:
+              - start_point:
+                  x: 1
+                  y: 1
+                  z: 1
+                end_point:
+                  x: 0
+                  y: 0
+                  z: 0
+              clipping_planes:
+              - location:
+                  x: 0.5
+                  y: 0.5
+                  z: 0.5
+                direction:
+                  x: 1
+                  y: 0
+                  z: 0
+              bitmaps:
+              - guid: "20c1cb56-315f-4a0a-922d-ed7a4a8edf55"
+                bitmap_type: "jpg"
+                location:
+                  x: 10
+                  y: -10
+                  z: 7
+                normal:
+                  x: -1
+                  y: 1.25
+                  z: 0
+                up:
+                  x: -5.4000000000000003552713678800500929355621337890625
+                  y: -4.29999999999999982236431605997495353221893310546875
+                  z: 1
+                height: 1666
+              snapshot:
+                snapshot_type: "png"
+      x-swagger-router-controller: "Viewpoint"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}:
+    get:
+      tags:
+      - "viewpoint"
+      summary: "Retrieve a collection of all viewpoints related to a topic."
+      description: "Retrieve a collection of all viewpoints related to a topic."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidViewpointsViewpoint_guidGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - name: "viewpoint_guid"
+        in: "path"
+        description: "Viewpoint guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/viewpoint_GET"
+          examples:
+            application/json:
+              guid: "a11a82e7-e66c-34b4-ada1-5846abf39133"
+              index: 10
+              perspective_camera:
+                camera_view_point:
+                  x: 0
+                  y: 0
+                  z: 0
+                camera_direction:
+                  x: 1
+                  y: 1
+                  z: 2
+                camera_up_vector:
+                  x: 0
+                  y: 0
+                  z: 1
+                field_of_view: 90
+              lines:
+              - start_point:
+                  x: 1
+                  y: 1
+                  z: 1
+                end_point:
+                  x: 0
+                  y: 0
+                  z: 0
+              clipping_planes:
+              - location:
+                  x: 0.5
+                  y: 0.5
+                  z: 0.5
+                direction:
+                  x: 1
+                  y: 0
+                  z: 0
+              bitmaps:
+              - guid: "20c1cb56-315f-4a0a-922d-ed7a4a8edf55"
+                bitmap_type: "jpg"
+                location:
+                  x: 10
+                  y: -10
+                  z: 7
+                normal:
+                  x: -1
+                  y: 1.25
+                  z: 0
+                up:
+                  x: -5.4000000000000003552713678800500929355621337890625
+                  y: -4.29999999999999982236431605997495353221893310546875
+                  z: 1
+                height: 1666
+              snapshot:
+                snapshot_type: "png"
+      x-swagger-router-controller: "Viewpoint"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/snapshot:
+    get:
+      tags:
+      - "viewpoint"
+      summary: "Retrieve a viewpoints snapshot (png or jpg) as image file."
+      description: "Retrieve a viewpoints snapshot (png or jpg) as image file."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidViewpointsViewpoint_guidSnapshotGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - name: "viewpoint_guid"
+        in: "path"
+        description: "Viewpoint guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+      x-swagger-router-controller: "Viewpoint"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/bitmaps/{bitmap_guid}:
+    get:
+      tags:
+      - "viewpoint"
+      summary: "Retrieve a specific viewpoints bitmap image file (png or jpg)."
+      description: "Retrieve a specific viewpoints bitmap image file (png or jpg)."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidViewpointsViewpoint_guidBitmapsBitmap_guidGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - name: "viewpoint_guid"
+        in: "path"
+        description: "Viewpoint guid"
+        required: true
+        type: "string"
+      - name: "bitmap_guid"
+        in: "path"
+        description: "Bitmap guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+      x-swagger-router-controller: "Viewpoint"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/selection:
+    get:
+      tags:
+      - "viewpoint"
+      summary: "Retrieve a collection of all selected components in a viewpoint."
+      description: "Retrieve a collection of all selected components in a viewpoint."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidViewpointsViewpoint_guidSelectionGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - name: "viewpoint_guid"
+        in: "path"
+        description: "Viewpoint guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/selection_GET"
+          examples:
+            application/json:
+              selection:
+              - ifc_guid: "2MF28NhmDBiRVyFakgdbCT"
+                originating_system: "Example CAD Application"
+                authoring_tool_id: "EXCAD/v1.0"
+              - ifc_guid: "3$cshxZO9AJBebsni$z9Yk"
+      x-swagger-router-controller: "Viewpoint"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/coloring:
+    get:
+      tags:
+      - "viewpoint"
+      summary: "Retrieve a collection of all colored components in a viewpoint."
+      description: "Retrieve a collection of all colored components in a viewpoint."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidViewpointsViewpoint_guidColoringGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - name: "viewpoint_guid"
+        in: "path"
+        description: "Viewpoint guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/coloring_GET"
+          examples:
+            application/json:
+              coloring:
+              - color: "#ff0000"
+                components:
+                - ifc_guid: "2MF28NhmDBiRVyFakgdbCT"
+                  originating_system: "Example CAD Application"
+                  authoring_tool_id: "EXCAD/v1.0"
+                - ifc_guid: "3$cshxZO9AJBebsni$z9Yk"
+      x-swagger-router-controller: "Viewpoint"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/visibility:
+    get:
+      tags:
+      - "viewpoint"
+      summary: "Retrieve visibility of components in a viewpoint."
+      description: "Retrieve visibility of components in a viewpoint."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidViewpointsViewpoint_guidVisibilityGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - name: "viewpoint_guid"
+        in: "path"
+        description: "Viewpoint guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/visibility_GET"
+          examples:
+            application/json:
+              visibility:
+                default_visibility: true
+                exceptions:
+                - ifc_guid: "2MF28NhmDBiRVyFakgdbCT"
+                  originating_system: "Example CAD Application"
+                  authoring_tool_id: "EXCAD/v1.0"
+                - ifc_guid: "3$cshxZO9AJBebsni$z9Yk"
+                view_setup_hints:
+                  spaces_visible: true
+                  space_boundaries_visible: false
+                  openings_visible: true
+      x-swagger-router-controller: "Viewpoint"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/related_topics:
+    get:
+      tags:
+      - "related topic"
+      summary: "Retrieve a collection of all related topics to a topic."
+      description: "Retrieve a collection of all related topics to a topic."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidRelated_topicsGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/related_topic_GET"
+          examples:
+            application/json:
+            - related_topic_guid: "db49df2b-0e42-473b-a3ee-f7b785d783c4"
+            - related_topic_guid: "6963a846-54d1-4050-954d-607cd5e48aa3"
+      x-swagger-router-controller: "RelatedTopic"
+    put:
+      tags:
+      - "related topic"
+      summary: "Add or update a collection of all related topics to a topic."
+      description: "Add or update a collection of all related topics to a topic. This\
+        \ operation is only possible when the server returns the updateRelatedTopics\
+        \ flag in the Topic authorization."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidRelated_topicsPUT"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "related_topic_PUT"
+        required: false
+        schema:
+          $ref: "#/definitions/related_topic_GET"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/related_topic_GET"
+          examples:
+            application/json:
+            - related_topic_guid: "db49df2b-0e42-473b-a3ee-f7b785d783c4"
+            - related_topic_guid: "6963a846-54d1-4050-954d-607cd5e48aa3"
+            - related_topic_guid: "bac66ab4-331e-4f21-a28e-083d2cf2e796"
+      x-swagger-router-controller: "RelatedTopic"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references:
+    get:
+      tags:
+      - "document reference"
+      summary: "Retrieve a collection of all document references to a topic."
+      description: "Retrieve a collection of all document references to a topic."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidDocument_referencesGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/document_reference_GET"
+          examples:
+            application/json:
+            - guid: "212ab37a-6122-448e-86fc-86503183b520"
+              url: "http://example.com/files/LegalRequirements.pdf"
+              description: "The legal requirements for buildings."
+            - guid: "6cbfe31d-95c3-4f4d-92a6-420c23698721"
+              document_guid: "472ab37a-6122-448e-86fc-86503183b520"
+              description: "The building owners global design parameters for buildings."
+      x-swagger-router-controller: "DocumentReference"
+    post:
+      tags:
+      - "document reference"
+      summary: "Retrieve a collection of all document references to a topic."
+      description: "Retrieve a collection of all document references to a topic."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidDocument_referencesPOST"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "Document_reference_POST"
+        required: false
+        schema:
+          $ref: "#/definitions/Document_reference_POST"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/document_reference_GET"
+          examples:
+            application/json:
+            - guid: "135ab37a-6122-448e-86fc-86503183b520"
+              url: "http://example.com/files/LegalRequirements_Update.pdf"
+              description: "The legal requirements for buildings."
+      x-swagger-router-controller: "DocumentReference"
+  /bcf/{version}/projects/{project_id}/documents:
+    get:
+      tags:
+      - "document"
+      summary: "Retrieve a collection of all documents uploaded to a project."
+      description: "Retrieve a collection of all documents uploaded to a project."
+      operationId: "bcfVersionProjectsProject_idDocumentsGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/document_GET"
+          examples:
+            application/json:
+            - guid: "472ab37a-6122-448e-86fc-86503183b520"
+              filename: "LegalRequirements.pdf"
+            - guid: "6cbfe31d-95c3-4f4d-92a6-420c23698721"
+              filename: "DesignParameters.pdf"
+      x-swagger-router-controller: "Document"
+    post:
+      tags:
+      - "document"
+      summary: "Upload a document (binary file) to a project."
+      description: "Upload a document (binary file) to a project. This operation is\
+        \ only possible when the server returns the createDocument flag in the Project\
+        \ authorization."
+      operationId: "bcfVersionProjectsProject_idDocumentsPOST"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/document_GET"
+          examples:
+            application/json:
+              guid: "472ab37a-6122-448e-86fc-86503183b520"
+              filename: "Official_Building_Permission.pdf"
+      x-swagger-router-controller: "Document"
+  /bcf/{version}/projects/{project_id}/documents/{document_guid}:
+    get:
+      tags:
+      - "document"
+      summary: "Retrieves a document as binary file."
+      description: "Retrieves a document as binary file."
+      operationId: "bcfVersionProjectsProject_idDocumentsDocument_guidGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "document_guid"
+        in: "path"
+        description: "Document guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/document_GET"
+      x-swagger-router-controller: "Document"
+  /bcf/{version}/projects/{project_id}/topics/events:
+    get:
+      tags:
+      - "topic events"
+      summary: "Retrieve a collection of topic events related to a project."
+      description: "Retrieve a collection of topic events related to a project (default\
+        \ sort order is date)."
+      operationId: "bcfVersionProjectsProject_idTopicsEventsGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/topic_event_GET"
+          examples:
+            application/json:
+            - topic_guid: "A211FCC2-3A3B-EAA4-C321-DE22ABC8414"
+              date: "2014-11-19T14:24:11.316Z"
+              author: "Architect@example.com"
+              events:
+              - type: "status_updated"
+                value: "Closed"
+            - topic_guid: "A245F4F2-2C01-B43B-B612-5E456BEF8116"
+              date: "2013-10-21T17:34:22.409Z"
+              author: "Architect@example.com"
+              events:
+              - type: "type_updated"
+                value: "Warning"
+      x-swagger-router-controller: "TopicEvents"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/events:
+    get:
+      tags:
+      - "topic events"
+      summary: "Retrieve a collection of topic events related to a project."
+      description: "Retrieve a collection of topic events related to a project (default\
+        \ sort order is date)."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidEventsGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/topic_event_GET"
+          examples:
+            application/json:
+            - topic_guid: "A245F4F2-2C01-B43B-B612-5E456BEF8116"
+              date: "2014-11-19T14:24:11.316Z"
+              author: "Architect@example.com"
+              events:
+              - type: "type_updated"
+                value: "Error"
+            - topic_guid: "A245F4F2-2C01-B43B-B612-5E456BEF8116"
+              date: "2013-10-21T17:34:22.409Z"
+              author: "Architect@example.com"
+              events:
+              - type: "status_updated"
+                value: "Open"
+      x-swagger-router-controller: "TopicEvents"
+  /bcf/{version}/projects/{project_id}/topics/comments/events:
+    get:
+      tags:
+      - "comment events"
+      summary: "RRetrieve a collection of comment events related to a project."
+      description: "Retrieve a collection of comment events related to a project (default\
+        \ sort order is date)."
+      operationId: "bcfVersionProjectsProject_idTopicsCommentsEventsGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/comment_event_GET"
+          examples:
+            application/json:
+            - comment_guid: "C4215F4D-AC45-A43A-D615-AA456BEF832B"
+              topic_guid: "A211FCC2-3A3B-EAA4-C321-DE22ABC8414"
+              date: "2014-11-19T14:24:11.316Z"
+              author: "Architect@example.com"
+              events:
+              - type: "comment_created"
+                value: null
+            - comment_guid: "C4215F4D-AC45-A43A-D615-AA456BEF832B"
+              topic_guid: "A245F4F2-2C01-B43B-B612-5E456BEF8116"
+              date: "2013-10-21T17:34:22.409Z"
+              author: "Architect@example.com"
+              events:
+              - type: "viewpoint_updated"
+                value: "b24a82e9-f67b-43b8-bda0-4946abf39624"
+      x-swagger-router-controller: "CommentEvents"
+  /bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid}/events:
+    get:
+      tags:
+      - "comment events"
+      summary: "RRetrieve a collection of comment events related to a project."
+      description: "Retrieve a collection of comment events related to a project (default\
+        \ sort order is date)."
+      operationId: "bcfVersionProjectsProject_idTopicsTopic_guidCommentsComment_guidEventsGET"
+      parameters:
+      - name: "version"
+        in: "path"
+        description: "BFC Version"
+        required: true
+        type: "string"
+        enum:
+        - "1.0"
+        - "2.1"
+      - name: "project_id"
+        in: "path"
+        description: "Project ID"
+        required: true
+        type: "string"
+      - name: "topic_guid"
+        in: "path"
+        description: "Topic guid"
+        required: true
+        type: "string"
+      - name: "comment_guid"
+        in: "path"
+        description: "Comment guid"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/comment_event_GET"
+          examples:
+            application/json:
+            - comment_guid: "C4215F4D-AC45-A43A-D615-AA456BEF832B"
+              topic_guid: "A211FCC2-3A3B-EAA4-C321-DE22ABC8414"
+              date: "2014-11-19T14:24:11.316Z"
+              author: "Architect@example.com"
+              events:
+              - type: "comment_created"
+                value: null
+            - comment_guid: "C4215F4D-AC45-A43A-D615-AA456BEF832B"
+              topic_guid: "A245F4F2-2C01-B43B-B612-5E456BEF8116"
+              date: "2013-10-21T17:34:22.409Z"
+              author: "Architect@example.com"
+              events:
+              - type: "comment_text_updated"
+                value: "This is the updated comment"
+      x-swagger-router-controller: "CommentEvents"
+definitions:
+  versions_GET:
+    type: "object"
+    properties:
+      versions:
+        type: "array"
+        items:
+          $ref: "#/definitions/versions_GET_versions"
+  coloring_GET:
+    type: "object"
+    properties:
+      coloring:
+        type: "array"
+        items:
+          $ref: "#/definitions/coloring"
+  project_GET:
+    type: "object"
+    required:
+    - "name"
+    - "project_id"
+    properties:
+      project_id:
+        type: "string"
+      name:
+        type: "string"
+      authorization:
+        $ref: "#/definitions/project_GET_authorization"
+  document_reference_GET:
+    type: "object"
+    required:
+    - "guid"
+    properties:
+      guid:
+        type: "string"
+      document_guid:
+        type: "string"
+      url:
+        type: "string"
+      description:
+        type: "string"
+    description: "Schema for a single document reference GET, BCF REST API."
+  selection_GET:
+    type: "object"
+    properties:
+      selection:
+        $ref: "#/definitions/component_list"
+    description: "Schema for selection GET, BCF REST API."
+  snapshot_GET:
+    type: "object"
+    properties:
+      snapshot_type:
+        type: "string"
+        enum:
+        - "jpg"
+        - "png"
+  bitmap_GET:
+    type: "object"
+    properties:
+      guid:
+        type: "string"
+      bitmap_type:
+        type: "string"
+        enum:
+        - "jpg"
+        - "png"
+      location:
+        $ref: "#/definitions/location"
+      normal:
+        $ref: "#/definitions/direction"
+      up:
+        $ref: "#/definitions/direction"
+      height:
+        type: "number"
+  viewpoint_GET:
+    type: "object"
+    required:
+    - "guid"
+    properties:
+      index:
+        type: "integer"
+      guid:
+        type: "string"
+      orthogonal_camera:
+        $ref: "#/definitions/orthogonal_camera"
+      perspective_camera:
+        $ref: "#/definitions/perspective_camera"
+      lines:
+        type: "array"
+        items:
+          $ref: "#/definitions/line"
+      clipping_planes:
+        type: "array"
+        items:
+          $ref: "#/definitions/clipping_plane"
+      bitmaps:
+        type: "array"
+        items:
+          $ref: "#/definitions/bitmap_GET"
+      snapshot:
+        $ref: "#/definitions/snapshot_GET"
+  visibility_GET:
+    type: "object"
+    properties:
+      visibility:
+        $ref: "#/definitions/visibility"
+  document_GET:
+    type: "object"
+    required:
+    - "filename"
+    - "guid"
+    properties:
+      guid:
+        type: "string"
+      filename:
+        type: "string"
+    example:
+      filename: "filename"
+      guid: "guid"
+  topic_event_GET:
+    type: "object"
+    required:
+    - "author"
+    - "date"
+    - "topic_guid"
+    properties:
+      topic_guid:
+        type: "string"
+      date:
+        type: "string"
+      author:
+        type: "string"
+      actions:
+        type: "array"
+        items:
+          $ref: "#/definitions/event_action"
+        minItems: 1
+  comment_event_GET:
+    type: "object"
+    required:
+    - "actions"
+    - "author"
+    - "comment_guid"
+    - "date"
+    - "topic_guid"
+    properties:
+      comment_guid:
+        type: "string"
+      topic_guid:
+        type: "string"
+      date:
+        type: "string"
+      author:
+        type: "string"
+      actions:
+        type: "array"
+        items:
+          $ref: "#/definitions/event_action"
+        minItems: 1
+  file_GET:
+    type: "object"
+    properties:
+      ifc_project:
+        type: "string"
+      ifc_spatial_structure_element:
+        type: "string"
+      file_name:
+        type: "string"
+      date:
+        type: "string"
+      reference:
+        type: "string"
+    description: "Schema for a single file GET, BCF REST API."
+  related_topic_GET:
+    type: "object"
+    required:
+    - "related_topic_guid"
+    properties:
+      related_topic_guid:
+        type: "string"
+    description: "Schema for single related topic GET, BCF REST API."
+    example:
+    - related_topic_guid: "db49df2b-0e42-473b-a3ee-f7b785d783c4"
+    - related_topic_guid: "6963a846-54d1-4050-954d-607cd5e48aa3"
+    - related_topic_guid: "bac66ab4-331e-4f21-a28e-083d2cf2e796"
+  auth_GET:
+    type: "object"
+    properties:
+      oauth2_auth_url:
+        type: "string"
+      oauth2_token_url:
+        type: "string"
+      oauth2_dynamic_client_reg_url:
+        type: "string"
+      http_basic_supported:
+        type: "boolean"
+      supported_oauth2_flows:
+        type: "array"
+        items:
+          type: "string"
+  dyn_reg_client_GET:
+    type: "object"
+    required:
+    - "client_id"
+    - "client_secret"
+    properties:
+      client_id:
+        type: "string"
+      client_secret:
+        type: "string"
+    description: "Dynamic Client Meta Data"
+  extensions_GET:
+    type: "object"
+    required:
+    - "priority"
+    - "snippet_type"
+    - "stage"
+    - "topic_label"
+    - "topic_status"
+    - "topic_type"
+    - "user_id_type"
+    properties:
+      topic_type:
+        type: "array"
+        example:
+        - "Information"
+        - "Error"
+        items:
+          type: "string"
+      topic_status:
+        type: "array"
+        example:
+        - "Information"
+        - "Error"
+        items:
+          type: "string"
+      topic_label:
+        type: "array"
+        example:
+        - "Architecture"
+        - "Structural"
+        - "MEP"
+        items:
+          type: "string"
+      snippet_type:
+        type: "array"
+        example:
+        - ".ifc"
+        - ".csv"
+        items:
+          type: "string"
+      priority:
+        type: "array"
+        example:
+        - "Low"
+        - "Medium"
+        - "High"
+        items:
+          type: "string"
+      user_id_type:
+        type: "array"
+        example:
+        - "Architect@example.com"
+        - "BIM-Manager@example.com"
+        - "bob_heater@example.com"
+        items:
+          type: "string"
+      stage:
+        type: "array"
+        example:
+        - "Preliminary Planning End"
+        - "Construction Start"
+        - "Construction End"
+        items:
+          type: "string"
+      topic_actions:
+        $ref: "#/definitions/topic_actions"
+      project_actions:
+        $ref: "#/definitions/project_actions"
+      comment_actions:
+        $ref: "#/definitions/comment_actions"
+  user_GET:
+    type: "object"
+    required:
+    - "id"
+    properties:
+      id:
+        type: "string"
+      name:
+        type: "string"
+  topic_GET:
+    type: "object"
+    properties:
+      guid:
+        type: "string"
+      topic_type:
+        type: "string"
+      topic_status:
+        type: "string"
+      reference_links:
+        type: "array"
+        items:
+          type: "string"
+      title:
+        type: "string"
+      priority:
+        type: "string"
+      index:
+        type: "integer"
+      labels:
+        type: "array"
+        items:
+          type: "string"
+      creation_date:
+        type: "string"
+      creation_author:
+        type: "string"
+      modified_date:
+        type: "string"
+      modified_author:
+        type: "string"
+      assigned_to:
+        type: "string"
+      stage:
+        type: "string"
+      description:
+        type: "string"
+      bim_snippet:
+        $ref: "#/definitions/bim_snippet"
+      due_date:
+        type: "string"
+      authorization:
+        $ref: "#/definitions/topic_GET_authorization"
+  comment_GET:
+    type: "object"
+    required:
+    - "author"
+    - "comment"
+    - "date"
+    - "guid"
+    - "topic_guid"
+    properties:
+      guid:
+        type: "string"
+      date:
+        type: "string"
+      author:
+        type: "string"
+      comment:
+        type: "string"
+      topic_guid:
+        type: "string"
+      viewpoint_guid:
+        type: "string"
+      reply_to_comment_guid:
+        type: "string"
+      modified_date:
+        type: "string"
+      modified_author:
+        type: "string"
+      authorization:
+        $ref: "#/definitions/comment_GET_authorization"
+  authorization:
+    type: "object"
+  error:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+    description: "Schema for error, BCF REST API."
+  bim_snippet:
+    type: "object"
+    properties:
+      snippet_type:
+        type: "string"
+      is_external:
+        type: "boolean"
+      reference:
+        type: "string"
+      reference_schema:
+        type: "string"
+  topic_actions:
+    type: "array"
+    items:
+      type: "string"
+      example: ""
+  project_actions:
+    type: "array"
+    items:
+      type: "string"
+      example: ""
+  comment_actions:
+    type: "array"
+    items:
+      type: "string"
+      example: ""
+  event_action:
+    type: "object"
+    required:
+    - "type"
+    properties:
+      type:
+        type: "string"
+      value:
+        type: "string"
+  visibility:
+    type: "object"
+    properties:
+      default_visibility:
+        type: "boolean"
+        default: false
+      exceptions:
+        $ref: "#/definitions/component_list"
+      view_setup_hints:
+        $ref: "#/definitions/view_setup_hints"
+  view_setup_hints:
+    type: "object"
+    properties:
+      spaces_visible:
+        type: "boolean"
+        default: false
+      space_boundaries_visible:
+        type: "boolean"
+        default: false
+      openings_visible:
+        type: "boolean"
+        default: false
+  clipping_plane:
+    type: "object"
+    properties:
+      location:
+        $ref: "#/definitions/location"
+      direction:
+        $ref: "#/definitions/direction"
+  coloring:
+    type: "object"
+    properties:
+      color:
+        type: "string"
+      components:
+        $ref: "#/definitions/component_list"
+  components:
+    type: "object"
+    properties:
+      selection:
+        $ref: "#/definitions/component_list"
+      coloring:
+        type: "array"
+        items:
+          $ref: "#/definitions/coloring"
+      visibility:
+        $ref: "#/definitions/visibility"
+  component_list:
+    type: "array"
+    items:
+      $ref: "#/definitions/component"
+  component:
+    type: "object"
+    properties:
+      ifc_guid:
+        type: "string"
+      originating_system:
+        type: "string"
+      authoring_tool_id:
+        type: "string"
+  line:
+    type: "object"
+    properties:
+      start_point:
+        $ref: "#/definitions/point"
+      end_point:
+        $ref: "#/definitions/point"
+  point:
+    type: "object"
+    required:
+    - "x"
+    - "y"
+    - "z"
+    properties:
+      x:
+        type: "number"
+      y:
+        type: "number"
+      z:
+        type: "number"
+  location:
+    type: "object"
+    required:
+    - "x"
+    - "y"
+    - "z"
+    properties:
+      x:
+        type: "number"
+      y:
+        type: "number"
+      z:
+        type: "number"
+  direction:
+    type: "object"
+    required:
+    - "x"
+    - "y"
+    - "z"
+    properties:
+      x:
+        type: "number"
+      y:
+        type: "number"
+      z:
+        type: "number"
+  orthogonal_camera:
+    type: "object"
+    properties:
+      camera_view_point:
+        $ref: "#/definitions/point"
+      camera_direction:
+        $ref: "#/definitions/direction"
+      camera_up_vector:
+        $ref: "#/definitions/direction"
+      view_to_world_scale:
+        type: "number"
+  perspective_camera:
+    type: "object"
+    properties:
+      camera_view_point:
+        $ref: "#/definitions/point"
+      camera_direction:
+        $ref: "#/definitions/direction"
+      camera_up_vector:
+        $ref: "#/definitions/direction"
+      field_of_view:
+        type: "number"
+  Error:
+    type: "object"
+    required:
+    - "code"
+    - "message"
+    properties:
+      code:
+        type: "string"
+      message:
+        type: "string"
+  body:
+    type: "object"
+    required:
+    - "name"
+    properties:
+      name:
+        type: "string"
+    example:
+      name: "Example project 3 - Second Section"
+  Topic_POST:
+    type: "object"
+    properties:
+      guid:
+        type: "string"
+      topic_type:
+        type: "string"
+      topic_status:
+        type: "string"
+      reference_links:
+        type: "array"
+        items:
+          type: "string"
+      title:
+        type: "string"
+      priority:
+        type: "string"
+      index:
+        type: "integer"
+      labels:
+        type: "array"
+        items:
+          type: "string"
+      creation_date:
+        type: "string"
+      creation_author:
+        type: "string"
+      modified_date:
+        type: "string"
+      modified_author:
+        type: "string"
+      assigned_to:
+        type: "string"
+      stage:
+        type: "string"
+      description:
+        type: "string"
+      bim_snippet:
+        $ref: "#/definitions/bim_snippet"
+      due_date:
+        type: "string"
+    example:
+      topic_type: "Clash"
+      topic_status: "open"
+      title: "Example topic 3"
+      priority: "high"
+      labels:
+      - "Architecture"
+      - "Heating"
+      assigned_to: "harry.muster@example.com"
+      bim_snippet:
+        snippet_type: "clash"
+        is_external: true
+        reference: "https://example.com/bcf/1.0/ADFE23AA11BCFF444122BB"
+        reference_schema: "https://example.com/bcf/1.0/clash.xsd"
+  Topic_PUT:
+    type: "object"
+    properties:
+      guid:
+        type: "string"
+      topic_type:
+        type: "string"
+      topic_status:
+        type: "string"
+      reference_links:
+        type: "array"
+        items:
+          type: "string"
+      title:
+        type: "string"
+      priority:
+        type: "string"
+      index:
+        type: "integer"
+      labels:
+        type: "array"
+        items:
+          type: "string"
+      creation_date:
+        type: "string"
+      creation_author:
+        type: "string"
+      modified_date:
+        type: "string"
+      modified_author:
+        type: "string"
+      assigned_to:
+        type: "string"
+      stage:
+        type: "string"
+      description:
+        type: "string"
+      bim_snippet:
+        $ref: "#/definitions/bim_snippet"
+      due_date:
+        type: "string"
+    example:
+      topic_type: "Clash"
+      topic_status: "open"
+      title: "Example topic 3 - Changed Title"
+      priority: "high"
+      labels:
+      - "Architecture"
+      - "Heating"
+      assigned_to: "harry.muster@example.com"
+      bim_snippet:
+        snippet_type: "clash"
+        is_external: true
+        reference: "https://example.com/bcf/1.0/ADFE23AA11BCFF444122BB"
+        reference_schema: "https://example.com/bcf/1.0/clash.xsd"
+  File_PUT:
+    type: "object"
+    properties:
+      ifc_project:
+        type: "string"
+      ifc_spatial_structure_element:
+        type: "string"
+      file_name:
+        type: "string"
+      date:
+        type: "string"
+      reference:
+        type: "string"
+    example:
+      ifc_project: "0J$yPqHBD12v72y4qF6XcD"
+      file_name: "OfficeBuilding_Architecture_0001.ifc"
+      reference: "https://example.com/files/0J$yPqHBD12v72y4qF6XcD_0001.ifc"
+  comment_POST:
+    type: "object"
+    required:
+    - "comment"
+    properties:
+      comment:
+        type: "string"
+      viewpoint_guid:
+        type: "string"
+      reply_to_comment_guid:
+        type: "string"
+    example:
+      comment: "will rework the heating model"
+  comment_PUT:
+    type: "object"
+    required:
+    - "comment"
+    properties:
+      comment:
+        type: "string"
+      viewpoint_guid:
+        type: "string"
+      reply_to_comment_guid:
+        type: "string"
+    example:
+      comment: "will rework the heating model and fix the ventilation"
+  viewpoint_POST:
+    type: "object"
+    properties:
+      index:
+        type: "integer"
+      guid:
+        type: "string"
+      orthogonal_camera:
+        $ref: "#/definitions/orthogonal_camera"
+      perspective_camera:
+        $ref: "#/definitions/perspective_camera"
+      lines:
+        type: "array"
+        items:
+          $ref: "#/definitions/line"
+      clipping_planes:
+        type: "array"
+        items:
+          $ref: "#/definitions/clipping_plane"
+      bitmaps:
+        type: "array"
+        items:
+          $ref: "#/definitions/bitmap_GET"
+      snapshot:
+        $ref: "#/definitions/snapshot_GET"
+      components:
+        $ref: "#/definitions/components"
+    example:
+      index: 10
+      perspective_camera:
+        camera_view_point:
+          x: 0
+          y: 0
+          z: 0
+        camera_direction:
+          x: 1
+          y: 1
+          z: 2
+        camera_up_vector:
+          x: 0
+          y: 0
+          z: 1
+        field_of_view: 90
+      lines:
+      - start_point:
+          x: 1
+          y: 1
+          z: 1
+        end_point:
+          x: 0
+          y: 0
+          z: 0
+      clipping_planes:
+      - location:
+          x: 0.5
+          y: 0.5
+          z: 0.5
+        direction:
+          x: 1
+          y: 0
+          z: 0
+      bitmaps:
+      - bitmap_type: "jpg"
+        bitmap_data: "SGVsbG8gV29ybGQh"
+        location:
+          x: 10
+          y: -10
+          z: 7
+        normal:
+          x: -1
+          y: 1.25
+          z: 0
+        up:
+          x: -5.4000000000000003552713678800500929355621337890625
+          y: -4.29999999999999982236431605997495353221893310546875
+          z: 1
+        height: 1666
+      snapshot:
+        snapshot_type: "png"
+        snapshot_data: "SGVsbG8gV29ybGQh"
+      components:
+        selection:
+        - ifc_guid: "2MF28NhmDBiRVyFakgdbCT"
+          originating_system: "Example CAD Application"
+          authoring_tool_id: "EXCAD/v1.0"
+        coloring:
+        - color: "#ff0000"
+          components:
+          - ifc_guid: "3$cshxZO9AJBebsni$z9Yk"
+        visibility:
+          default_visbility: false
+          exceptions:
+          - ifc_guid: "4$cshxZO9AJBebsni$z9Yk"
+          view_setup_hints:
+            spaces_visible: true
+            space_boundaries_visible: false
+            openings_visible: true
+  Document_reference_POST:
+    type: "object"
+    properties:
+      document_guid:
+        type: "string"
+      url:
+        type: "string"
+      description:
+        type: "string"
+    example:
+    - url: "http://example.com/files/LegalRequirements.pdf"
+      description: "The legal requirements for buildings."
+  versions_GET_versions:
+    properties:
+      version_id:
+        type: "string"
+      detailed_version:
+        type: "string"
+  project_GET_authorization:
+    properties:
+      project_actions:
+        $ref: "#/definitions/project_actions"
+  topic_GET_authorization:
+    properties:
+      topic_actions:
+        $ref: "#/definitions/topic_actions"
+      topic_status:
+        type: "array"
+        items:
+          type: "string"
+  comment_GET_authorization:
+    properties:
+      comment_actions:
+        $ref: "#/definitions/comment_actions"
+parameters:
+  version_in_path:
+    name: "version"
+    in: "path"
+    description: "BFC Version"
+    required: true
+    type: "string"
+    enum:
+    - "1.0"
+    - "2.1"
+  project_id_in_path:
+    name: "project_id"
+    in: "path"
+    description: "Project ID"
+    required: true
+    type: "string"
+  topic_guid_in_path:
+    name: "topic_guid"
+    in: "path"
+    description: "Topic guid"
+    required: true
+    type: "string"
+  comment_guid_in_path:
+    name: "comment_guid"
+    in: "path"
+    description: "Comment guid"
+    required: true
+    type: "string"
+  viewpoint_guid_in_path:
+    name: "viewpoint_guid"
+    in: "path"
+    description: "Viewpoint guid"
+    required: true
+    type: "string"
+  bitmap_guid_in_path:
+    name: "bitmap_guid"
+    in: "path"
+    description: "Bitmap guid"
+    required: true
+    type: "string"
+  document_guid_in_path:
+    name: "document_guid"
+    in: "path"
+    description: "Document guid"
+    required: true
+    type: "string"
+  project_PUT:
+    in: "body"
+    name: "body"
+    description: "Update name"
+    required: false
+    schema:
+      $ref: "#/definitions/body"
+  comment_POST:
+    in: "body"
+    name: "comment_POST"
+    required: false
+    schema:
+      $ref: "#/definitions/comment_POST"
+  comment_PUT:
+    in: "body"
+    name: "comment_PUT"
+    required: false
+    schema:
+      $ref: "#/definitions/comment_PUT"
+  document_reference_POST:
+    in: "body"
+    name: "Document_reference_POST"
+    required: false
+    schema:
+      $ref: "#/definitions/Document_reference_POST"
+  document_reference_PUT:
+    in: "body"
+    name: "Document_reference_PUT"
+    required: false
+    schema:
+      type: "object"
+      required:
+      - "guid"
+      properties:
+        guid:
+          type: "string"
+        document_guid:
+          type: "string"
+        url:
+          type: "string"
+        description:
+          type: "string"
+  file_PUT:
+    in: "body"
+    name: "File_PUT"
+    required: false
+    schema:
+      $ref: "#/definitions/File_PUT"
+  related_topic_PUT:
+    in: "body"
+    name: "related_topic_PUT"
+    required: false
+    schema:
+      $ref: "#/definitions/related_topic_GET"
+  topic_POST:
+    in: "body"
+    name: "Topic_POST"
+    required: false
+    schema:
+      $ref: "#/definitions/Topic_POST"
+  topic_PUT:
+    in: "body"
+    name: "Topic_PUT"
+    required: false
+    schema:
+      $ref: "#/definitions/Topic_PUT"
+  bitmap_POST:
+    in: "body"
+    name: "Bitmap_POST"
+    required: false
+    schema:
+      type: "object"
+      properties:
+        bitmap_type:
+          type: "string"
+          enum:
+          - "jpg"
+          - "png"
+        bitmap_data:
+          type: "string"
+          format: "base64"
+        location:
+          $ref: "#/definitions/location"
+        normal:
+          $ref: "#/definitions/direction"
+        up:
+          $ref: "#/definitions/direction"
+        height:
+          type: "number"
+  snapshot_POST:
+    in: "body"
+    name: "snapshot_POST"
+    required: false
+    schema:
+      type: "object"
+      properties:
+        snapshot_type:
+          type: "string"
+          enum:
+          - "jpg"
+          - "png"
+        snapshot_data:
+          type: "string"
+          format: "base64"
+  viewpoint_POST:
+    in: "body"
+    name: "viewpoint_POST"
+    required: false
+    schema:
+      $ref: "#/definitions/viewpoint_POST"
+  dyn_reg_client_POST:
+    in: "body"
+    name: "viewpoint_POST"
+    description: "Dynamic Client Meta Data"
+    required: false
+    schema:
+      type: "object"
+      required:
+      - "client_name"
+      - "redirect_url"
+      properties:
+        client_name:
+          type: "string"
+          maxLength: 60
+        client_description:
+          type: "string"
+          maxLength: 4000
+        client_url:
+          type: "string"
+        redirect_url:
+          type: "string"
+responses:
+  BadRequest:
+    description: "Bad request"
+    schema:
+      $ref: "#/definitions/Error"
+  NotFound:
+    description: "The specified resource was not found"
+    schema:
+      $ref: "#/definitions/Error"
+  Unauthorized:
+    description: "Unauthorized"
+    schema:
+      $ref: "#/definitions/Error"

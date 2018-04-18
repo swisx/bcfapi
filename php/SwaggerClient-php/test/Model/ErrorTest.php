@@ -33,7 +33,7 @@ namespace Swagger\Client;
  * ErrorTest Class Doc Comment
  *
  * @category    Class */
-// * @description Schema for error, BCF REST API.
+// * @description Error
 /**
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
@@ -75,6 +75,13 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
      * Test "Error"
      */
     public function testError()
+    {
+    }
+
+    /**
+     * Test attribute "code"
+     */
+    public function testPropertyCode()
     {
     }
 

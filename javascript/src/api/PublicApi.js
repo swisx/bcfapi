@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import AuthGET from '../model/AuthGET';
+import Error from '../model/Error';
 import UserGET from '../model/UserGET';
 import VersionsGET from '../model/VersionsGET';
 

@@ -26,18 +26,19 @@ import ApiClient from '../ApiClient';
 export default class Error {
     /**
     * Constructs a new <code>Error</code>.
-    * Schema for error, BCF REST API.
     * @alias module:model/Error
     * @class
+    * @param code {String} 
+    * @param message {String} 
     */
 
-    constructor() {
+    constructor(code, message) {
         
 
         
         
 
-        
+        this['code'] = code;this['message'] = message;
 
         
     }
@@ -57,6 +58,9 @@ export default class Error {
             
             
 
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'String');
+            }
             if (data.hasOwnProperty('message')) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
@@ -64,6 +68,10 @@ export default class Error {
         return obj;
     }
 
+    /**
+    * @member {String} code
+    */
+    code = undefined;
     /**
     * @member {String} message
     */
