@@ -1,6 +1,6 @@
 <?php
 /**
- * FileApiTest
+ * DocumentApiTest
  * PHP version 5
  *
  * @category Class
@@ -33,7 +33,7 @@ use \Swagger\Client\ApiException;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * FileApiTest Class Doc Comment
+ * DocumentApiTest Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
@@ -41,7 +41,7 @@ use \Swagger\Client\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class FileApiTest extends \PHPUnit_Framework_TestCase
+class DocumentApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -73,22 +73,32 @@ class FileApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet
+     * Test case for bcfVersionProjectsProjectIdDocumentsDocumentGuidGet
      *
-     * Retrieve a collection of file references as topic header..
+     * Retrieves a document as binary file..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsTopicGuidFilesGet()
+    public function testBcfVersionProjectsProjectIdDocumentsDocumentGuidGet()
     {
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut
+     * Test case for bcfVersionProjectsProjectIdDocumentsGet
      *
-     * Update a collection of file references on the topic header..
+     * Retrieve a collection of all documents uploaded to a project..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsTopicGuidFilesPut()
+    public function testBcfVersionProjectsProjectIdDocumentsGet()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdDocumentsPost
+     *
+     * Upload a document (binary file) to a project..
+     *
+     */
+    public function testBcfVersionProjectsProjectIdDocumentsPost()
     {
     }
 }

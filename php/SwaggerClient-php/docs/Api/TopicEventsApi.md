@@ -1,39 +1,38 @@
-# Swagger\Client\FileApi
+# Swagger\Client\TopicEventsApi
 
 All URIs are relative to *https://virtserver.swaggerhub.com/swisx/bcfAPI/1.0.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet**](FileApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/files | Retrieve a collection of file references as topic header.
-[**bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut**](FileApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut) | **PUT** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/files | Update a collection of file references on the topic header.
+[**bcfVersionProjectsProjectIdTopicsEventsGet**](TopicEventsApi.md#bcfVersionProjectsProjectIdTopicsEventsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/events | Retrieve a collection of topic events related to a project.
+[**bcfVersionProjectsProjectIdTopicsTopicGuidEventsGet**](TopicEventsApi.md#bcfVersionProjectsProjectIdTopicsTopicGuidEventsGet) | **GET** /bcf/{version}/projects/{project_id}/topics/{topic_guid}/events | Retrieve a collection of topic events related to a project.
 
 
-# **bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet**
-> \Swagger\Client\Model\FileGET[] bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet($version, $project_id, $topic_guid)
+# **bcfVersionProjectsProjectIdTopicsEventsGet**
+> \Swagger\Client\Model\TopicEventGET[] bcfVersionProjectsProjectIdTopicsEventsGet($version, $project_id)
 
-Retrieve a collection of file references as topic header.
+Retrieve a collection of topic events related to a project.
 
-Retrieve a collection of file references as topic header.
+Retrieve a collection of topic events related to a project (default sort order is date).
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\FileApi(
+$apiInstance = new Swagger\Client\Api\TopicEventsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
 $version = "version_example"; // string | BFC Version
 $project_id = "project_id_example"; // string | Project ID
-$topic_guid = "topic_guid_example"; // string | Topic guid
 
 try {
-    $result = $apiInstance->bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet($version, $project_id, $topic_guid);
+    $result = $apiInstance->bcfVersionProjectsProjectIdTopicsEventsGet($version, $project_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FileApi->bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TopicEventsApi->bcfVersionProjectsProjectIdTopicsEventsGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -44,11 +43,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **version** | **string**| BFC Version |
  **project_id** | **string**| Project ID |
- **topic_guid** | **string**| Topic guid |
 
 ### Return type
 
-[**\Swagger\Client\Model\FileGET[]**](../Model/FileGET.md)
+[**\Swagger\Client\Model\TopicEventGET[]**](../Model/TopicEventGET.md)
 
 ### Authorization
 
@@ -61,19 +59,19 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut**
-> \Swagger\Client\Model\FileGET bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut($version, $project_id, $topic_guid, $file_put)
+# **bcfVersionProjectsProjectIdTopicsTopicGuidEventsGet**
+> \Swagger\Client\Model\TopicEventGET[] bcfVersionProjectsProjectIdTopicsTopicGuidEventsGet($version, $project_id, $topic_guid)
 
-Update a collection of file references on the topic header.
+Retrieve a collection of topic events related to a project.
 
-Update a collection of file references on the topic header. This operation is only possible when the server returns the updateFiles flag in the Topic authorization.
+Retrieve a collection of topic events related to a project (default sort order is date).
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\FileApi(
+$apiInstance = new Swagger\Client\Api\TopicEventsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -81,13 +79,12 @@ $apiInstance = new Swagger\Client\Api\FileApi(
 $version = "version_example"; // string | BFC Version
 $project_id = "project_id_example"; // string | Project ID
 $topic_guid = "topic_guid_example"; // string | Topic guid
-$file_put = new \Swagger\Client\Model\FilePUT(); // \Swagger\Client\Model\FilePUT | 
 
 try {
-    $result = $apiInstance->bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut($version, $project_id, $topic_guid, $file_put);
+    $result = $apiInstance->bcfVersionProjectsProjectIdTopicsTopicGuidEventsGet($version, $project_id, $topic_guid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FileApi->bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TopicEventsApi->bcfVersionProjectsProjectIdTopicsTopicGuidEventsGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -99,11 +96,10 @@ Name | Type | Description  | Notes
  **version** | **string**| BFC Version |
  **project_id** | **string**| Project ID |
  **topic_guid** | **string**| Topic guid |
- **file_put** | [**\Swagger\Client\Model\FilePUT**](../Model/FilePUT.md)|  | [optional]
 
 ### Return type
 
-[**\Swagger\Client\Model\FileGET**](../Model/FileGET.md)
+[**\Swagger\Client\Model\TopicEventGET[]**](../Model/TopicEventGET.md)
 
 ### Authorization
 

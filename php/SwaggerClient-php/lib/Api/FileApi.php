@@ -84,41 +84,41 @@ class FileApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidFilesGet
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet
      *
      * Retrieve a collection of file references as topic header.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\FileGET[]
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidFilesGet($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet($version, $project_id, $topic_guid)
     {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsGuidFilesGetWithHttpInfo($version, $project_id, $guid);
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetWithHttpInfo($version, $project_id, $topic_guid);
         return $response;
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidFilesGetWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetWithHttpInfo
      *
      * Retrieve a collection of file references as topic header.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\FileGET[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidFilesGetWithHttpInfo($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetWithHttpInfo($version, $project_id, $topic_guid)
     {
         $returnType = '\Swagger\Client\Model\FileGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidFilesGetRequest($version, $project_id, $guid);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetRequest($version, $project_id, $topic_guid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,20 +180,20 @@ class FileApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidFilesGetAsync
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetAsync
      *
      * Retrieve a collection of file references as topic header.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidFilesGetAsync($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetAsync($version, $project_id, $topic_guid)
     {
-        return $this->bcfVersionProjectsProjectIdTopicsGuidFilesGetAsyncWithHttpInfo($version, $project_id, $guid)
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetAsyncWithHttpInfo($version, $project_id, $topic_guid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -202,21 +202,21 @@ class FileApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidFilesGetAsyncWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetAsyncWithHttpInfo
      *
      * Retrieve a collection of file references as topic header.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidFilesGetAsyncWithHttpInfo($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetAsyncWithHttpInfo($version, $project_id, $topic_guid)
     {
         $returnType = '\Swagger\Client\Model\FileGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidFilesGetRequest($version, $project_id, $guid);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetRequest($version, $project_id, $topic_guid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -256,37 +256,37 @@ class FileApi
     }
 
     /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsGuidFilesGet'
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet'
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function bcfVersionProjectsProjectIdTopicsGuidFilesGetRequest($version, $project_id, $guid)
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidFilesGetRequest($version, $project_id, $topic_guid)
     {
         // verify the required parameter 'version' is set
         if ($version === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsGuidFilesGet'
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsGuidFilesGet'
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet'
             );
         }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsProjectIdTopicsGuidFilesGet'
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet'
             );
         }
 
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{guid}/files';
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/files';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -311,10 +311,10 @@ class FileApi
             );
         }
         // path params
-        if ($guid !== null) {
+        if ($topic_guid !== null) {
             $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
                 $resourcePath
             );
         }
@@ -384,43 +384,43 @@ class FileApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidFilesPut
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut
      *
      * Update a collection of file references on the topic header.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\FilePUT $file_put file_put (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\FileGET
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidFilesPut($version, $project_id, $guid, $file_put = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut($version, $project_id, $topic_guid, $file_put = null)
     {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsGuidFilesPutWithHttpInfo($version, $project_id, $guid, $file_put);
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutWithHttpInfo($version, $project_id, $topic_guid, $file_put);
         return $response;
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidFilesPutWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutWithHttpInfo
      *
      * Update a collection of file references on the topic header.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\FilePUT $file_put (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\FileGET, HTTP status code, HTTP response headers (array of strings)
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidFilesPutWithHttpInfo($version, $project_id, $guid, $file_put = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutWithHttpInfo($version, $project_id, $topic_guid, $file_put = null)
     {
         $returnType = '\Swagger\Client\Model\FileGET';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidFilesPutRequest($version, $project_id, $guid, $file_put);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutRequest($version, $project_id, $topic_guid, $file_put);
 
         try {
             $options = $this->createHttpClientOption();
@@ -482,21 +482,21 @@ class FileApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidFilesPutAsync
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutAsync
      *
      * Update a collection of file references on the topic header.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\FilePUT $file_put (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidFilesPutAsync($version, $project_id, $guid, $file_put = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutAsync($version, $project_id, $topic_guid, $file_put = null)
     {
-        return $this->bcfVersionProjectsProjectIdTopicsGuidFilesPutAsyncWithHttpInfo($version, $project_id, $guid, $file_put)
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutAsyncWithHttpInfo($version, $project_id, $topic_guid, $file_put)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -505,22 +505,22 @@ class FileApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidFilesPutAsyncWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutAsyncWithHttpInfo
      *
      * Update a collection of file references on the topic header.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\FilePUT $file_put (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidFilesPutAsyncWithHttpInfo($version, $project_id, $guid, $file_put = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutAsyncWithHttpInfo($version, $project_id, $topic_guid, $file_put = null)
     {
         $returnType = '\Swagger\Client\Model\FileGET';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidFilesPutRequest($version, $project_id, $guid, $file_put);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutRequest($version, $project_id, $topic_guid, $file_put);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -560,38 +560,38 @@ class FileApi
     }
 
     /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsGuidFilesPut'
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut'
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\FilePUT $file_put (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function bcfVersionProjectsProjectIdTopicsGuidFilesPutRequest($version, $project_id, $guid, $file_put = null)
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidFilesPutRequest($version, $project_id, $topic_guid, $file_put = null)
     {
         // verify the required parameter 'version' is set
         if ($version === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsGuidFilesPut'
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsGuidFilesPut'
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut'
             );
         }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsProjectIdTopicsGuidFilesPut'
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut'
             );
         }
 
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{guid}/files';
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/files';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -616,10 +616,10 @@ class FileApi
             );
         }
         // path params
-        if ($guid !== null) {
+        if ($topic_guid !== null) {
             $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
                 $resourcePath
             );
         }

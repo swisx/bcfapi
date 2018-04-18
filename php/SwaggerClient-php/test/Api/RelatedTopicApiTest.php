@@ -73,22 +73,22 @@ class RelatedTopicApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet
      *
      * Retrieve a collection of all related topics to a topic..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet()
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet()
     {
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut
      *
      * Add or update a collection of all related topics to a topic..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut()
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut()
     {
     }
 }

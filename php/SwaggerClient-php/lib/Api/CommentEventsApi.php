@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentReferenceApi
+ * CommentEventsApi
  * PHP version 5
  *
  * @category Class
@@ -40,7 +40,7 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * DocumentReferenceApi Class Doc Comment
+ * CommentEventsApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
@@ -48,7 +48,7 @@ use Swagger\Client\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DocumentReferenceApi
+class CommentEventsApi
 {
     /**
      * @var ClientInterface
@@ -84,41 +84,39 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet
+     * Operation bcfVersionProjectsProjectIdTopicsCommentsEventsGet
      *
-     * Retrieve a collection of all document references to a topic.
+     * RRetrieve a collection of comment events related to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DocumentReferenceGET[]
+     * @return \Swagger\Client\Model\CommentEventGET[]
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet($version, $project_id, $topic_guid)
+    public function bcfVersionProjectsProjectIdTopicsCommentsEventsGet($version, $project_id)
     {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetWithHttpInfo($version, $project_id, $topic_guid);
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsCommentsEventsGetWithHttpInfo($version, $project_id);
         return $response;
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsCommentsEventsGetWithHttpInfo
      *
-     * Retrieve a collection of all document references to a topic.
+     * RRetrieve a collection of comment events related to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\DocumentReferenceGET[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\CommentEventGET[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetWithHttpInfo($version, $project_id, $topic_guid)
+    public function bcfVersionProjectsProjectIdTopicsCommentsEventsGetWithHttpInfo($version, $project_id)
     {
-        $returnType = '\Swagger\Client\Model\DocumentReferenceGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetRequest($version, $project_id, $topic_guid);
+        $returnType = '\Swagger\Client\Model\CommentEventGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsCommentsEventsGetRequest($version, $project_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -169,7 +167,7 @@ class DocumentReferenceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\DocumentReferenceGET[]',
+                        '\Swagger\Client\Model\CommentEventGET[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -180,20 +178,19 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetAsync
+     * Operation bcfVersionProjectsProjectIdTopicsCommentsEventsGetAsync
      *
-     * Retrieve a collection of all document references to a topic.
+     * RRetrieve a collection of comment events related to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetAsync($version, $project_id, $topic_guid)
+    public function bcfVersionProjectsProjectIdTopicsCommentsEventsGetAsync($version, $project_id)
     {
-        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetAsyncWithHttpInfo($version, $project_id, $topic_guid)
+        return $this->bcfVersionProjectsProjectIdTopicsCommentsEventsGetAsyncWithHttpInfo($version, $project_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -202,21 +199,20 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetAsyncWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsCommentsEventsGetAsyncWithHttpInfo
      *
-     * Retrieve a collection of all document references to a topic.
+     * RRetrieve a collection of comment events related to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetAsyncWithHttpInfo($version, $project_id, $topic_guid)
+    public function bcfVersionProjectsProjectIdTopicsCommentsEventsGetAsyncWithHttpInfo($version, $project_id)
     {
-        $returnType = '\Swagger\Client\Model\DocumentReferenceGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetRequest($version, $project_id, $topic_guid);
+        $returnType = '\Swagger\Client\Model\CommentEventGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsCommentsEventsGetRequest($version, $project_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -256,37 +252,30 @@ class DocumentReferenceApi
     }
 
     /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet'
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsCommentsEventsGet'
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetRequest($version, $project_id, $topic_guid)
+    protected function bcfVersionProjectsProjectIdTopicsCommentsEventsGetRequest($version, $project_id)
     {
         // verify the required parameter 'version' is set
         if ($version === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet'
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsCommentsEventsGet'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet'
-            );
-        }
-        // verify the required parameter 'topic_guid' is set
-        if ($topic_guid === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet'
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsCommentsEventsGet'
             );
         }
 
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references';
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/comments/events';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -307,14 +296,6 @@ class DocumentReferenceApi
             $resourcePath = str_replace(
                 '{' . 'project_id' . '}',
                 ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($topic_guid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'topic_guid' . '}',
-                ObjectSerializer::toPathValue($topic_guid),
                 $resourcePath
             );
         }
@@ -384,43 +365,43 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet
      *
-     * Retrieve a collection of all document references to a topic.
+     * RRetrieve a collection of comment events related to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
      * @param  string $topic_guid Topic guid (required)
-     * @param  \Swagger\Client\Model\DocumentReferencePOST $document_reference_post document_reference_post (optional)
+     * @param  string $comment_guid Comment guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DocumentReferenceGET[]
+     * @return \Swagger\Client\Model\CommentEventGET[]
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost($version, $project_id, $topic_guid, $document_reference_post = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet($version, $project_id, $topic_guid, $comment_guid)
     {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostWithHttpInfo($version, $project_id, $topic_guid, $document_reference_post);
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGetWithHttpInfo($version, $project_id, $topic_guid, $comment_guid);
         return $response;
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGetWithHttpInfo
      *
-     * Retrieve a collection of all document references to a topic.
+     * RRetrieve a collection of comment events related to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
      * @param  string $topic_guid Topic guid (required)
-     * @param  \Swagger\Client\Model\DocumentReferencePOST $document_reference_post (optional)
+     * @param  string $comment_guid Comment guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\DocumentReferenceGET[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\CommentEventGET[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostWithHttpInfo($version, $project_id, $topic_guid, $document_reference_post = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGetWithHttpInfo($version, $project_id, $topic_guid, $comment_guid)
     {
-        $returnType = '\Swagger\Client\Model\DocumentReferenceGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostRequest($version, $project_id, $topic_guid, $document_reference_post);
+        $returnType = '\Swagger\Client\Model\CommentEventGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGetRequest($version, $project_id, $topic_guid, $comment_guid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -471,7 +452,7 @@ class DocumentReferenceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\DocumentReferenceGET[]',
+                        '\Swagger\Client\Model\CommentEventGET[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -482,21 +463,21 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostAsync
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGetAsync
      *
-     * Retrieve a collection of all document references to a topic.
+     * RRetrieve a collection of comment events related to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
      * @param  string $topic_guid Topic guid (required)
-     * @param  \Swagger\Client\Model\DocumentReferencePOST $document_reference_post (optional)
+     * @param  string $comment_guid Comment guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostAsync($version, $project_id, $topic_guid, $document_reference_post = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGetAsync($version, $project_id, $topic_guid, $comment_guid)
     {
-        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostAsyncWithHttpInfo($version, $project_id, $topic_guid, $document_reference_post)
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $comment_guid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -505,22 +486,22 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostAsyncWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGetAsyncWithHttpInfo
      *
-     * Retrieve a collection of all document references to a topic.
+     * RRetrieve a collection of comment events related to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
      * @param  string $topic_guid Topic guid (required)
-     * @param  \Swagger\Client\Model\DocumentReferencePOST $document_reference_post (optional)
+     * @param  string $comment_guid Comment guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostAsyncWithHttpInfo($version, $project_id, $topic_guid, $document_reference_post = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $comment_guid)
     {
-        $returnType = '\Swagger\Client\Model\DocumentReferenceGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostRequest($version, $project_id, $topic_guid, $document_reference_post);
+        $returnType = '\Swagger\Client\Model\CommentEventGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGetRequest($version, $project_id, $topic_guid, $comment_guid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -560,38 +541,44 @@ class DocumentReferenceApi
     }
 
     /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost'
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet'
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
      * @param  string $topic_guid Topic guid (required)
-     * @param  \Swagger\Client\Model\DocumentReferencePOST $document_reference_post (optional)
+     * @param  string $comment_guid Comment guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostRequest($version, $project_id, $topic_guid, $document_reference_post = null)
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGetRequest($version, $project_id, $topic_guid, $comment_guid)
     {
         // verify the required parameter 'version' is set
         if ($version === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost'
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost'
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet'
             );
         }
         // verify the required parameter 'topic_guid' is set
         if ($topic_guid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost'
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet'
+            );
+        }
+        // verify the required parameter 'comment_guid' is set
+        if ($comment_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet'
             );
         }
 
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references';
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/comments/{comment_guid}/events';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -623,12 +610,17 @@ class DocumentReferenceApi
                 $resourcePath
             );
         }
+        // path params
+        if ($comment_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'comment_guid' . '}',
+                ObjectSerializer::toPathValue($comment_guid),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
-        if (isset($document_reference_post)) {
-            $_tempBody = $document_reference_post;
-        }
 
         if ($multipart) {
             $headers= $this->headerSelector->selectHeadersForMultipart(
@@ -684,7 +676,7 @@ class DocumentReferenceApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'POST',
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

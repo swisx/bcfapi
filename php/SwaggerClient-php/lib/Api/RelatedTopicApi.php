@@ -84,41 +84,41 @@ class RelatedTopicApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet
      *
      * Retrieve a collection of all related topics to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\RelatedTopicGET[]
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet($version, $project_id, $topic_guid)
     {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetWithHttpInfo($version, $project_id, $guid);
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetWithHttpInfo($version, $project_id, $topic_guid);
         return $response;
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetWithHttpInfo
      *
      * Retrieve a collection of all related topics to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\RelatedTopicGET[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetWithHttpInfo($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetWithHttpInfo($version, $project_id, $topic_guid)
     {
         $returnType = '\Swagger\Client\Model\RelatedTopicGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetRequest($version, $project_id, $guid);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetRequest($version, $project_id, $topic_guid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,20 +180,20 @@ class RelatedTopicApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetAsync
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetAsync
      *
      * Retrieve a collection of all related topics to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetAsync($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetAsync($version, $project_id, $topic_guid)
     {
-        return $this->bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetAsyncWithHttpInfo($version, $project_id, $guid)
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetAsyncWithHttpInfo($version, $project_id, $topic_guid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -202,21 +202,21 @@ class RelatedTopicApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetAsyncWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetAsyncWithHttpInfo
      *
      * Retrieve a collection of all related topics to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetAsyncWithHttpInfo($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetAsyncWithHttpInfo($version, $project_id, $topic_guid)
     {
         $returnType = '\Swagger\Client\Model\RelatedTopicGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetRequest($version, $project_id, $guid);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetRequest($version, $project_id, $topic_guid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -256,37 +256,37 @@ class RelatedTopicApi
     }
 
     /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet'
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet'
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGetRequest($version, $project_id, $guid)
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGetRequest($version, $project_id, $topic_guid)
     {
         // verify the required parameter 'version' is set
         if ($version === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet'
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet'
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet'
             );
         }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsGet'
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsGet'
             );
         }
 
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{guid}/related_topics';
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/related_topics';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -311,10 +311,10 @@ class RelatedTopicApi
             );
         }
         // path params
-        if ($guid !== null) {
+        if ($topic_guid !== null) {
             $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
                 $resourcePath
             );
         }
@@ -384,43 +384,43 @@ class RelatedTopicApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut
      *
      * Add or update a collection of all related topics to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\RelatedTopicGET $related_topic_put related_topic_put (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\RelatedTopicGET[]
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut($version, $project_id, $guid, $related_topic_put = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut($version, $project_id, $topic_guid, $related_topic_put = null)
     {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutWithHttpInfo($version, $project_id, $guid, $related_topic_put);
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutWithHttpInfo($version, $project_id, $topic_guid, $related_topic_put);
         return $response;
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutWithHttpInfo
      *
      * Add or update a collection of all related topics to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\RelatedTopicGET $related_topic_put (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\RelatedTopicGET[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutWithHttpInfo($version, $project_id, $guid, $related_topic_put = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutWithHttpInfo($version, $project_id, $topic_guid, $related_topic_put = null)
     {
         $returnType = '\Swagger\Client\Model\RelatedTopicGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutRequest($version, $project_id, $guid, $related_topic_put);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutRequest($version, $project_id, $topic_guid, $related_topic_put);
 
         try {
             $options = $this->createHttpClientOption();
@@ -482,21 +482,21 @@ class RelatedTopicApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutAsync
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutAsync
      *
      * Add or update a collection of all related topics to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\RelatedTopicGET $related_topic_put (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutAsync($version, $project_id, $guid, $related_topic_put = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutAsync($version, $project_id, $topic_guid, $related_topic_put = null)
     {
-        return $this->bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutAsyncWithHttpInfo($version, $project_id, $guid, $related_topic_put)
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutAsyncWithHttpInfo($version, $project_id, $topic_guid, $related_topic_put)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -505,22 +505,22 @@ class RelatedTopicApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutAsyncWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutAsyncWithHttpInfo
      *
      * Add or update a collection of all related topics to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\RelatedTopicGET $related_topic_put (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutAsyncWithHttpInfo($version, $project_id, $guid, $related_topic_put = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutAsyncWithHttpInfo($version, $project_id, $topic_guid, $related_topic_put = null)
     {
         $returnType = '\Swagger\Client\Model\RelatedTopicGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutRequest($version, $project_id, $guid, $related_topic_put);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutRequest($version, $project_id, $topic_guid, $related_topic_put);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -560,38 +560,38 @@ class RelatedTopicApi
     }
 
     /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut'
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut'
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\RelatedTopicGET $related_topic_put (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPutRequest($version, $project_id, $guid, $related_topic_put = null)
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPutRequest($version, $project_id, $topic_guid, $related_topic_put = null)
     {
         // verify the required parameter 'version' is set
         if ($version === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut'
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut'
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut'
             );
         }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsProjectIdTopicsGuidRelatedTopicsPut'
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidRelatedTopicsPut'
             );
         }
 
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{guid}/related_topics';
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/related_topics';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -616,10 +616,10 @@ class RelatedTopicApi
             );
         }
         // path params
-        if ($guid !== null) {
+        if ($topic_guid !== null) {
             $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
                 $resourcePath
             );
         }

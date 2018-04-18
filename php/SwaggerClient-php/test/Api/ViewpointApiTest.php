@@ -73,82 +73,82 @@ class ViewpointApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet
-     *
-     * Retrieve a specific viewpoints bitmap image file (png or jpg)..
-     *
-     */
-    public function testBcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet()
-    {
-    }
-
-    /**
-     * Test case for bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet
-     *
-     * Retrieve a viewpoints snapshot (png or jpg) as image file..
-     *
-     */
-    public function testBcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet()
-    {
-    }
-
-    /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidViewpointsGet
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet
      *
      * Retrieve a collection of all viewpoints related to a topic..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsGuidViewpointsGet()
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet()
     {
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet
-     *
-     * Retrieve a collection of all colored components in a viewpoint..
-     *
-     */
-    public function testBcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet()
-    {
-    }
-
-    /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet
-     *
-     * Retrieve a collection of all viewpoints related to a topic..
-     *
-     */
-    public function testBcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet()
-    {
-    }
-
-    /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet
-     *
-     * Retrieve a collection of all selected components in a viewpoint..
-     *
-     */
-    public function testBcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet()
-    {
-    }
-
-    /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet
-     *
-     * Retrieve visibility of components in a viewpoint..
-     *
-     */
-    public function testBcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet()
-    {
-    }
-
-    /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidViewpointsPost
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost
      *
      * Add a new viewpoint..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsGuidViewpointsPost()
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet
+     *
+     * Retrieve a specific viewpoints bitmap image file (png or jpg)..
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet
+     *
+     * Retrieve a collection of all colored components in a viewpoint..
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet
+     *
+     * Retrieve a collection of all viewpoints related to a topic..
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet
+     *
+     * Retrieve a collection of all selected components in a viewpoint..
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet
+     *
+     * Retrieve a viewpoints snapshot (png or jpg) as image file..
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet
+     *
+     * Retrieve visibility of components in a viewpoint..
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet()
     {
     }
 }

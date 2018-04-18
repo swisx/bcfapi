@@ -83,62 +83,62 @@ class TopicApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidDelete
-     *
-     * Deletes a single topic..
-     *
-     */
-    public function testBcfVersionProjectsProjectIdTopicsGuidDelete()
-    {
-    }
-
-    /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidGet
-     *
-     * Retrieve a specific topic..
-     *
-     */
-    public function testBcfVersionProjectsProjectIdTopicsGuidGet()
-    {
-    }
-
-    /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidPut
-     *
-     * Modify a specific topic.
-     *
-     */
-    public function testBcfVersionProjectsProjectIdTopicsGuidPut()
-    {
-    }
-
-    /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidSnippetGet
-     *
-     * Retrieves a topics BIM-Snippet as binary file..
-     *
-     */
-    public function testBcfVersionProjectsProjectIdTopicsGuidSnippetGet()
-    {
-    }
-
-    /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidSnippetPut
-     *
-     * Puts a new BIM Snippet binary file to a topic.
-     *
-     */
-    public function testBcfVersionProjectsProjectIdTopicsGuidSnippetPut()
-    {
-    }
-
-    /**
      * Test case for bcfVersionProjectsProjectIdTopicsPost
      *
      * Add a new topic..
      *
      */
     public function testBcfVersionProjectsProjectIdTopicsPost()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidDelete
+     *
+     * Deletes a single topic..
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidDelete()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidGet
+     *
+     * Retrieve a specific topic..
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidGet()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidPut
+     *
+     * Modify a specific topic.
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidPut()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet
+     *
+     * Retrieves a topics BIM-Snippet as binary file..
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidSnippetGet()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut
+     *
+     * Puts a new BIM Snippet binary file to a topic.
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidSnippetPut()
     {
     }
 }

@@ -84,567 +84,41 @@ class ViewpointApi
     }
 
     /**
-     * Operation bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet
-     *
-     * Retrieve a specific viewpoints bitmap image file (png or jpg).
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Bitmap guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet($version, $project_id, $guid)
-    {
-        $this->bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetWithHttpInfo($version, $project_id, $guid);
-    }
-
-    /**
-     * Operation bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetWithHttpInfo
-     *
-     * Retrieve a specific viewpoints bitmap image file (png or jpg).
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Bitmap guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '';
-        $request = $this->bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetRequest($version, $project_id, $guid);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse()->getBody()->getContents()
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetAsync
-     *
-     * Retrieve a specific viewpoints bitmap image file (png or jpg).
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Bitmap guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetAsync($version, $project_id, $guid)
-    {
-        return $this->bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetAsyncWithHttpInfo($version, $project_id, $guid)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetAsyncWithHttpInfo
-     *
-     * Retrieve a specific viewpoints bitmap image file (png or jpg).
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Bitmap guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetAsyncWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '';
-        $request = $this->bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetRequest($version, $project_id, $guid);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet'
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Bitmap guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGetRequest($version, $project_id, $guid)
-    {
-        // verify the required parameter 'version' is set
-        if ($version === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet'
-            );
-        }
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet'
-            );
-        }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidBitmapsGuidGet'
-            );
-        }
-
-        $resourcePath = '/bcf/{version}/projects/{guid}/topics/{guid}/viewpoints/{guid}/bitmaps/{guid}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($guid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet
-     *
-     * Retrieve a viewpoints snapshot (png or jpg) as image file.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet($version, $project_id, $guid)
-    {
-        $this->bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetWithHttpInfo($version, $project_id, $guid);
-    }
-
-    /**
-     * Operation bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetWithHttpInfo
-     *
-     * Retrieve a viewpoints snapshot (png or jpg) as image file.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '';
-        $request = $this->bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetRequest($version, $project_id, $guid);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse()->getBody()->getContents()
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetAsync
-     *
-     * Retrieve a viewpoints snapshot (png or jpg) as image file.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetAsync($version, $project_id, $guid)
-    {
-        return $this->bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetAsyncWithHttpInfo($version, $project_id, $guid)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetAsyncWithHttpInfo
-     *
-     * Retrieve a viewpoints snapshot (png or jpg) as image file.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetAsyncWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '';
-        $request = $this->bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetRequest($version, $project_id, $guid);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet'
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGetRequest($version, $project_id, $guid)
-    {
-        // verify the required parameter 'version' is set
-        if ($version === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet'
-            );
-        }
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet'
-            );
-        }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsGuidTopicsGuidViewpointsGuidSnapshotGet'
-            );
-        }
-
-        $resourcePath = '/bcf/{version}/projects/{guid}/topics/{guid}/viewpoints/{guid}/snapshot';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($guid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGet
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet
      *
      * Retrieve a collection of all viewpoints related to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\ViewpointGET[]
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGet($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet($version, $project_id, $topic_guid)
     {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGetWithHttpInfo($version, $project_id, $guid);
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetWithHttpInfo($version, $project_id, $topic_guid);
         return $response;
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGetWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetWithHttpInfo
      *
      * Retrieve a collection of all viewpoints related to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\ViewpointGET[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGetWithHttpInfo($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetWithHttpInfo($version, $project_id, $topic_guid)
     {
         $returnType = '\Swagger\Client\Model\ViewpointGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGetRequest($version, $project_id, $guid);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetRequest($version, $project_id, $topic_guid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -706,20 +180,20 @@ class ViewpointApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGetAsync
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetAsync
      *
      * Retrieve a collection of all viewpoints related to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGetAsync($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetAsync($version, $project_id, $topic_guid)
     {
-        return $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGetAsyncWithHttpInfo($version, $project_id, $guid)
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetAsyncWithHttpInfo($version, $project_id, $topic_guid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -728,21 +202,21 @@ class ViewpointApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGetAsyncWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetAsyncWithHttpInfo
      *
      * Retrieve a collection of all viewpoints related to a topic.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGetAsyncWithHttpInfo($version, $project_id, $guid)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetAsyncWithHttpInfo($version, $project_id, $topic_guid)
     {
         $returnType = '\Swagger\Client\Model\ViewpointGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGetRequest($version, $project_id, $guid);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetRequest($version, $project_id, $topic_guid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -782,37 +256,37 @@ class ViewpointApi
     }
 
     /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsGuidViewpointsGet'
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet'
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function bcfVersionProjectsProjectIdTopicsGuidViewpointsGetRequest($version, $project_id, $guid)
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGetRequest($version, $project_id, $topic_guid)
     {
         // verify the required parameter 'version' is set
         if ($version === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGet'
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGet'
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet'
             );
         }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGet'
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsGet'
             );
         }
 
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints';
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -837,10 +311,10 @@ class ViewpointApi
             );
         }
         // path params
-        if ($guid !== null) {
+        if ($topic_guid !== null) {
             $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
                 $resourcePath
             );
         }
@@ -910,1243 +384,43 @@ class ViewpointApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet
-     *
-     * Retrieve a collection of all colored components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ColoringGET[]
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet($version, $project_id, $guid)
-    {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetWithHttpInfo($version, $project_id, $guid);
-        return $response;
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetWithHttpInfo
-     *
-     * Retrieve a collection of all colored components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ColoringGET[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '\Swagger\Client\Model\ColoringGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetRequest($version, $project_id, $guid);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse()->getBody()->getContents()
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ColoringGET[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetAsync
-     *
-     * Retrieve a collection of all colored components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetAsync($version, $project_id, $guid)
-    {
-        return $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetAsyncWithHttpInfo($version, $project_id, $guid)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetAsyncWithHttpInfo
-     *
-     * Retrieve a collection of all colored components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetAsyncWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '\Swagger\Client\Model\ColoringGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetRequest($version, $project_id, $guid);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet'
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGetRequest($version, $project_id, $guid)
-    {
-        // verify the required parameter 'version' is set
-        if ($version === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet'
-            );
-        }
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet'
-            );
-        }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidColoringGet'
-            );
-        }
-
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid}/coloring';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($guid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet
-     *
-     * Retrieve a collection of all viewpoints related to a topic.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\ViewpointGET[]
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet($version, $project_id, $guid)
-    {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetWithHttpInfo($version, $project_id, $guid);
-        return $response;
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetWithHttpInfo
-     *
-     * Retrieve a collection of all viewpoints related to a topic.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\ViewpointGET[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '\Swagger\Client\Model\ViewpointGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetRequest($version, $project_id, $guid);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse()->getBody()->getContents()
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\ViewpointGET[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetAsync
-     *
-     * Retrieve a collection of all viewpoints related to a topic.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetAsync($version, $project_id, $guid)
-    {
-        return $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetAsyncWithHttpInfo($version, $project_id, $guid)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetAsyncWithHttpInfo
-     *
-     * Retrieve a collection of all viewpoints related to a topic.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetAsyncWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '\Swagger\Client\Model\ViewpointGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetRequest($version, $project_id, $guid);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet'
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGetRequest($version, $project_id, $guid)
-    {
-        // verify the required parameter 'version' is set
-        if ($version === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet'
-            );
-        }
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet'
-            );
-        }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidGet'
-            );
-        }
-
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($guid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet
-     *
-     * Retrieve a collection of all selected components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\SelectionGET[]
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet($version, $project_id, $guid)
-    {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetWithHttpInfo($version, $project_id, $guid);
-        return $response;
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetWithHttpInfo
-     *
-     * Retrieve a collection of all selected components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\SelectionGET[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '\Swagger\Client\Model\SelectionGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetRequest($version, $project_id, $guid);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse()->getBody()->getContents()
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\SelectionGET[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetAsync
-     *
-     * Retrieve a collection of all selected components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetAsync($version, $project_id, $guid)
-    {
-        return $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetAsyncWithHttpInfo($version, $project_id, $guid)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetAsyncWithHttpInfo
-     *
-     * Retrieve a collection of all selected components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetAsyncWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '\Swagger\Client\Model\SelectionGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetRequest($version, $project_id, $guid);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet'
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGetRequest($version, $project_id, $guid)
-    {
-        // verify the required parameter 'version' is set
-        if ($version === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet'
-            );
-        }
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet'
-            );
-        }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidSelectionGet'
-            );
-        }
-
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid}/selection';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($guid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet
-     *
-     * Retrieve visibility of components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\VisibilityGET[]
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet($version, $project_id, $guid)
-    {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetWithHttpInfo($version, $project_id, $guid);
-        return $response;
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetWithHttpInfo
-     *
-     * Retrieve visibility of components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\VisibilityGET[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '\Swagger\Client\Model\VisibilityGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetRequest($version, $project_id, $guid);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse()->getBody()->getContents()
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\VisibilityGET[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetAsync
-     *
-     * Retrieve visibility of components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetAsync($version, $project_id, $guid)
-    {
-        return $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetAsyncWithHttpInfo($version, $project_id, $guid)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetAsyncWithHttpInfo
-     *
-     * Retrieve visibility of components in a viewpoint.
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetAsyncWithHttpInfo($version, $project_id, $guid)
-    {
-        $returnType = '\Swagger\Client\Model\VisibilityGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetRequest($version, $project_id, $guid);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet'
-     *
-     * @param  string $version BFC Version (required)
-     * @param  string $project_id Project ID (required)
-     * @param  string $guid Viewpoint guid (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGetRequest($version, $project_id, $guid)
-    {
-        // verify the required parameter 'version' is set
-        if ($version === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet'
-            );
-        }
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet'
-            );
-        }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsGuidVisibilityGet'
-            );
-        }
-
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints/{guid}/visibility';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($version !== null) {
-            $resourcePath = str_replace(
-                '{' . 'version' . '}',
-                ObjectSerializer::toPathValue($version),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($guid !== null) {
-            $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsPost
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost
      *
      * Add a new viewpoint.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\ViewpointPOST $viewpoint_post viewpoint_post (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\ViewpointGET
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsPost($version, $project_id, $guid, $viewpoint_post = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost($version, $project_id, $topic_guid, $viewpoint_post = null)
     {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsPostWithHttpInfo($version, $project_id, $guid, $viewpoint_post);
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_post);
         return $response;
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsPostWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostWithHttpInfo
      *
      * Add a new viewpoint.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\ViewpointPOST $viewpoint_post (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\ViewpointGET, HTTP status code, HTTP response headers (array of strings)
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsPostWithHttpInfo($version, $project_id, $guid, $viewpoint_post = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_post = null)
     {
         $returnType = '\Swagger\Client\Model\ViewpointGET';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsPostRequest($version, $project_id, $guid, $viewpoint_post);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostRequest($version, $project_id, $topic_guid, $viewpoint_post);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2208,21 +482,21 @@ class ViewpointApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsPostAsync
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostAsync
      *
      * Add a new viewpoint.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\ViewpointPOST $viewpoint_post (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsPostAsync($version, $project_id, $guid, $viewpoint_post = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostAsync($version, $project_id, $topic_guid, $viewpoint_post = null)
     {
-        return $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsPostAsyncWithHttpInfo($version, $project_id, $guid, $viewpoint_post)
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_post)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2231,22 +505,22 @@ class ViewpointApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsGuidViewpointsPostAsyncWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostAsyncWithHttpInfo
      *
      * Add a new viewpoint.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\ViewpointPOST $viewpoint_post (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsGuidViewpointsPostAsyncWithHttpInfo($version, $project_id, $guid, $viewpoint_post = null)
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_post = null)
     {
         $returnType = '\Swagger\Client\Model\ViewpointGET';
-        $request = $this->bcfVersionProjectsProjectIdTopicsGuidViewpointsPostRequest($version, $project_id, $guid, $viewpoint_post);
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostRequest($version, $project_id, $topic_guid, $viewpoint_post);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2286,38 +560,38 @@ class ViewpointApi
     }
 
     /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsGuidViewpointsPost'
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost'
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $guid Topic guid (required)
+     * @param  string $topic_guid Topic guid (required)
      * @param  \Swagger\Client\Model\ViewpointPOST $viewpoint_post (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function bcfVersionProjectsProjectIdTopicsGuidViewpointsPostRequest($version, $project_id, $guid, $viewpoint_post = null)
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPostRequest($version, $project_id, $topic_guid, $viewpoint_post = null)
     {
         // verify the required parameter 'version' is set
         if ($version === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsPost'
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsPost'
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost'
             );
         }
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $guid when calling bcfVersionProjectsProjectIdTopicsGuidViewpointsPost'
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsPost'
             );
         }
 
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{guid}/viewpoints';
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2342,10 +616,10 @@ class ViewpointApi
             );
         }
         // path params
-        if ($guid !== null) {
+        if ($topic_guid !== null) {
             $resourcePath = str_replace(
-                '{' . 'guid' . '}',
-                ObjectSerializer::toPathValue($guid),
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
                 $resourcePath
             );
         }
@@ -2411,6 +685,1865 @@ class ViewpointApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet
+     *
+     * Retrieve a specific viewpoints bitmap image file (png or jpg).
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     * @param  string $bitmap_guid Bitmap guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet($version, $project_id, $topic_guid, $viewpoint_guid, $bitmap_guid)
+    {
+        $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid, $bitmap_guid);
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetWithHttpInfo
+     *
+     * Retrieve a specific viewpoints bitmap image file (png or jpg).
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     * @param  string $bitmap_guid Bitmap guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid, $bitmap_guid)
+    {
+        $returnType = '';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetRequest($version, $project_id, $topic_guid, $viewpoint_guid, $bitmap_guid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse()->getBody()->getContents()
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetAsync
+     *
+     * Retrieve a specific viewpoints bitmap image file (png or jpg).
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     * @param  string $bitmap_guid Bitmap guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetAsync($version, $project_id, $topic_guid, $viewpoint_guid, $bitmap_guid)
+    {
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid, $bitmap_guid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetAsyncWithHttpInfo
+     *
+     * Retrieve a specific viewpoints bitmap image file (png or jpg).
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     * @param  string $bitmap_guid Bitmap guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid, $bitmap_guid)
+    {
+        $returnType = '';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetRequest($version, $project_id, $topic_guid, $viewpoint_guid, $bitmap_guid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet'
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     * @param  string $bitmap_guid Bitmap guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGetRequest($version, $project_id, $topic_guid, $viewpoint_guid, $bitmap_guid)
+    {
+        // verify the required parameter 'version' is set
+        if ($version === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet'
+            );
+        }
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet'
+            );
+        }
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet'
+            );
+        }
+        // verify the required parameter 'viewpoint_guid' is set
+        if ($viewpoint_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $viewpoint_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet'
+            );
+        }
+        // verify the required parameter 'bitmap_guid' is set
+        if ($bitmap_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $bitmap_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidBitmapsBitmapGuidGet'
+            );
+        }
+
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/bitmaps/{bitmap_guid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($version !== null) {
+            $resourcePath = str_replace(
+                '{' . 'version' . '}',
+                ObjectSerializer::toPathValue($version),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($topic_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($viewpoint_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'viewpoint_guid' . '}',
+                ObjectSerializer::toPathValue($viewpoint_guid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($bitmap_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'bitmap_guid' . '}',
+                ObjectSerializer::toPathValue($bitmap_guid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet
+     *
+     * Retrieve a collection of all colored components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\ColoringGET[]
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid);
+        return $response;
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetWithHttpInfo
+     *
+     * Retrieve a collection of all colored components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\ColoringGET[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        $returnType = '\Swagger\Client\Model\ColoringGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetRequest($version, $project_id, $topic_guid, $viewpoint_guid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse()->getBody()->getContents()
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ColoringGET[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetAsync
+     *
+     * Retrieve a collection of all colored components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetAsync($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetAsyncWithHttpInfo
+     *
+     * Retrieve a collection of all colored components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        $returnType = '\Swagger\Client\Model\ColoringGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetRequest($version, $project_id, $topic_guid, $viewpoint_guid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet'
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGetRequest($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        // verify the required parameter 'version' is set
+        if ($version === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet'
+            );
+        }
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet'
+            );
+        }
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet'
+            );
+        }
+        // verify the required parameter 'viewpoint_guid' is set
+        if ($viewpoint_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $viewpoint_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidColoringGet'
+            );
+        }
+
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/coloring';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($version !== null) {
+            $resourcePath = str_replace(
+                '{' . 'version' . '}',
+                ObjectSerializer::toPathValue($version),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($topic_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($viewpoint_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'viewpoint_guid' . '}',
+                ObjectSerializer::toPathValue($viewpoint_guid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet
+     *
+     * Retrieve a collection of all viewpoints related to a topic.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\ViewpointGET[]
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid);
+        return $response;
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetWithHttpInfo
+     *
+     * Retrieve a collection of all viewpoints related to a topic.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\ViewpointGET[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        $returnType = '\Swagger\Client\Model\ViewpointGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetRequest($version, $project_id, $topic_guid, $viewpoint_guid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse()->getBody()->getContents()
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ViewpointGET[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetAsync
+     *
+     * Retrieve a collection of all viewpoints related to a topic.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetAsync($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetAsyncWithHttpInfo
+     *
+     * Retrieve a collection of all viewpoints related to a topic.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        $returnType = '\Swagger\Client\Model\ViewpointGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetRequest($version, $project_id, $topic_guid, $viewpoint_guid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet'
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGetRequest($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        // verify the required parameter 'version' is set
+        if ($version === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet'
+            );
+        }
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet'
+            );
+        }
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet'
+            );
+        }
+        // verify the required parameter 'viewpoint_guid' is set
+        if ($viewpoint_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $viewpoint_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidGet'
+            );
+        }
+
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($version !== null) {
+            $resourcePath = str_replace(
+                '{' . 'version' . '}',
+                ObjectSerializer::toPathValue($version),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($topic_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($viewpoint_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'viewpoint_guid' . '}',
+                ObjectSerializer::toPathValue($viewpoint_guid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet
+     *
+     * Retrieve a collection of all selected components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\SelectionGET[]
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid);
+        return $response;
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetWithHttpInfo
+     *
+     * Retrieve a collection of all selected components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\SelectionGET[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        $returnType = '\Swagger\Client\Model\SelectionGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetRequest($version, $project_id, $topic_guid, $viewpoint_guid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse()->getBody()->getContents()
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\SelectionGET[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetAsync
+     *
+     * Retrieve a collection of all selected components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetAsync($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetAsyncWithHttpInfo
+     *
+     * Retrieve a collection of all selected components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        $returnType = '\Swagger\Client\Model\SelectionGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetRequest($version, $project_id, $topic_guid, $viewpoint_guid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet'
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGetRequest($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        // verify the required parameter 'version' is set
+        if ($version === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet'
+            );
+        }
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet'
+            );
+        }
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet'
+            );
+        }
+        // verify the required parameter 'viewpoint_guid' is set
+        if ($viewpoint_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $viewpoint_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSelectionGet'
+            );
+        }
+
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/selection';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($version !== null) {
+            $resourcePath = str_replace(
+                '{' . 'version' . '}',
+                ObjectSerializer::toPathValue($version),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($topic_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($viewpoint_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'viewpoint_guid' . '}',
+                ObjectSerializer::toPathValue($viewpoint_guid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet
+     *
+     * Retrieve a viewpoints snapshot (png or jpg) as image file.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid);
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetWithHttpInfo
+     *
+     * Retrieve a viewpoints snapshot (png or jpg) as image file.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        $returnType = '';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetRequest($version, $project_id, $topic_guid, $viewpoint_guid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse()->getBody()->getContents()
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetAsync
+     *
+     * Retrieve a viewpoints snapshot (png or jpg) as image file.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetAsync($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetAsyncWithHttpInfo
+     *
+     * Retrieve a viewpoints snapshot (png or jpg) as image file.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        $returnType = '';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetRequest($version, $project_id, $topic_guid, $viewpoint_guid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet'
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGetRequest($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        // verify the required parameter 'version' is set
+        if ($version === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet'
+            );
+        }
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet'
+            );
+        }
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet'
+            );
+        }
+        // verify the required parameter 'viewpoint_guid' is set
+        if ($viewpoint_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $viewpoint_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidSnapshotGet'
+            );
+        }
+
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/snapshot';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($version !== null) {
+            $resourcePath = str_replace(
+                '{' . 'version' . '}',
+                ObjectSerializer::toPathValue($version),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($topic_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($viewpoint_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'viewpoint_guid' . '}',
+                ObjectSerializer::toPathValue($viewpoint_guid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet
+     *
+     * Retrieve visibility of components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\VisibilityGET[]
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid);
+        return $response;
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetWithHttpInfo
+     *
+     * Retrieve visibility of components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\VisibilityGET[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        $returnType = '\Swagger\Client\Model\VisibilityGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetRequest($version, $project_id, $topic_guid, $viewpoint_guid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse()->getBody()->getContents()
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\VisibilityGET[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetAsync
+     *
+     * Retrieve visibility of components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetAsync($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetAsyncWithHttpInfo
+     *
+     * Retrieve visibility of components in a viewpoint.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetAsyncWithHttpInfo($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        $returnType = '\Swagger\Client\Model\VisibilityGET[]';
+        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetRequest($version, $project_id, $topic_guid, $viewpoint_guid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet'
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     * @param  string $topic_guid Topic guid (required)
+     * @param  string $viewpoint_guid Viewpoint guid (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGetRequest($version, $project_id, $topic_guid, $viewpoint_guid)
+    {
+        // verify the required parameter 'version' is set
+        if ($version === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet'
+            );
+        }
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet'
+            );
+        }
+        // verify the required parameter 'topic_guid' is set
+        if ($topic_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet'
+            );
+        }
+        // verify the required parameter 'viewpoint_guid' is set
+        if ($viewpoint_guid === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $viewpoint_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidViewpointsViewpointGuidVisibilityGet'
+            );
+        }
+
+        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/viewpoints/{viewpoint_guid}/visibility';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($version !== null) {
+            $resourcePath = str_replace(
+                '{' . 'version' . '}',
+                ObjectSerializer::toPathValue($version),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($topic_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'topic_guid' . '}',
+                ObjectSerializer::toPathValue($topic_guid),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($viewpoint_guid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'viewpoint_guid' . '}',
+                ObjectSerializer::toPathValue($viewpoint_guid),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

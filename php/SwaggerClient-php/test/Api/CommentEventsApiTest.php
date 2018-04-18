@@ -1,6 +1,6 @@
 <?php
 /**
- * FileApiTest
+ * CommentEventsApiTest
  * PHP version 5
  *
  * @category Class
@@ -33,7 +33,7 @@ use \Swagger\Client\ApiException;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * FileApiTest Class Doc Comment
+ * CommentEventsApiTest Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
@@ -41,7 +41,7 @@ use \Swagger\Client\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class FileApiTest extends \PHPUnit_Framework_TestCase
+class CommentEventsApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -73,22 +73,22 @@ class FileApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidFilesGet
+     * Test case for bcfVersionProjectsProjectIdTopicsCommentsEventsGet
      *
-     * Retrieve a collection of file references as topic header..
+     * RRetrieve a collection of comment events related to a project..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsTopicGuidFilesGet()
+    public function testBcfVersionProjectsProjectIdTopicsCommentsEventsGet()
     {
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidFilesPut
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet
      *
-     * Update a collection of file references on the topic header..
+     * RRetrieve a collection of comment events related to a project..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsTopicGuidFilesPut()
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidEventsGet()
     {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * DocumentReferenceApi
+ * DocumentApi
  * PHP version 5
  *
  * @category Class
@@ -40,7 +40,7 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * DocumentReferenceApi Class Doc Comment
+ * DocumentApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
@@ -48,7 +48,7 @@ use Swagger\Client\ObjectSerializer;
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache License v2
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DocumentReferenceApi
+class DocumentApi
 {
     /**
      * @var ClientInterface
@@ -84,41 +84,41 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet
+     * Operation bcfVersionProjectsProjectIdDocumentsDocumentGuidGet
      *
-     * Retrieve a collection of all document references to a topic.
+     * Retrieves a document as binary file.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
+     * @param  string $document_guid Document guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DocumentReferenceGET[]
+     * @return \Swagger\Client\Model\DocumentGET
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet($version, $project_id, $topic_guid)
+    public function bcfVersionProjectsProjectIdDocumentsDocumentGuidGet($version, $project_id, $document_guid)
     {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetWithHttpInfo($version, $project_id, $topic_guid);
+        list($response) = $this->bcfVersionProjectsProjectIdDocumentsDocumentGuidGetWithHttpInfo($version, $project_id, $document_guid);
         return $response;
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdDocumentsDocumentGuidGetWithHttpInfo
      *
-     * Retrieve a collection of all document references to a topic.
+     * Retrieves a document as binary file.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
+     * @param  string $document_guid Document guid (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\DocumentReferenceGET[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\DocumentGET, HTTP status code, HTTP response headers (array of strings)
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetWithHttpInfo($version, $project_id, $topic_guid)
+    public function bcfVersionProjectsProjectIdDocumentsDocumentGuidGetWithHttpInfo($version, $project_id, $document_guid)
     {
-        $returnType = '\Swagger\Client\Model\DocumentReferenceGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetRequest($version, $project_id, $topic_guid);
+        $returnType = '\Swagger\Client\Model\DocumentGET';
+        $request = $this->bcfVersionProjectsProjectIdDocumentsDocumentGuidGetRequest($version, $project_id, $document_guid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -169,7 +169,7 @@ class DocumentReferenceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\DocumentReferenceGET[]',
+                        '\Swagger\Client\Model\DocumentGET',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -180,20 +180,20 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetAsync
+     * Operation bcfVersionProjectsProjectIdDocumentsDocumentGuidGetAsync
      *
-     * Retrieve a collection of all document references to a topic.
+     * Retrieves a document as binary file.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
+     * @param  string $document_guid Document guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetAsync($version, $project_id, $topic_guid)
+    public function bcfVersionProjectsProjectIdDocumentsDocumentGuidGetAsync($version, $project_id, $document_guid)
     {
-        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetAsyncWithHttpInfo($version, $project_id, $topic_guid)
+        return $this->bcfVersionProjectsProjectIdDocumentsDocumentGuidGetAsyncWithHttpInfo($version, $project_id, $document_guid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -202,21 +202,21 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetAsyncWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdDocumentsDocumentGuidGetAsyncWithHttpInfo
      *
-     * Retrieve a collection of all document references to a topic.
+     * Retrieves a document as binary file.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
+     * @param  string $document_guid Document guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetAsyncWithHttpInfo($version, $project_id, $topic_guid)
+    public function bcfVersionProjectsProjectIdDocumentsDocumentGuidGetAsyncWithHttpInfo($version, $project_id, $document_guid)
     {
-        $returnType = '\Swagger\Client\Model\DocumentReferenceGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetRequest($version, $project_id, $topic_guid);
+        $returnType = '\Swagger\Client\Model\DocumentGET';
+        $request = $this->bcfVersionProjectsProjectIdDocumentsDocumentGuidGetRequest($version, $project_id, $document_guid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -256,37 +256,37 @@ class DocumentReferenceApi
     }
 
     /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet'
+     * Create request for operation 'bcfVersionProjectsProjectIdDocumentsDocumentGuidGet'
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
+     * @param  string $document_guid Document guid (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGetRequest($version, $project_id, $topic_guid)
+    protected function bcfVersionProjectsProjectIdDocumentsDocumentGuidGetRequest($version, $project_id, $document_guid)
     {
         // verify the required parameter 'version' is set
         if ($version === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet'
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdDocumentsDocumentGuidGet'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet'
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdDocumentsDocumentGuidGet'
             );
         }
-        // verify the required parameter 'topic_guid' is set
-        if ($topic_guid === null) {
+        // verify the required parameter 'document_guid' is set
+        if ($document_guid === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesGet'
+                'Missing the required parameter $document_guid when calling bcfVersionProjectsProjectIdDocumentsDocumentGuidGet'
             );
         }
 
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references';
+        $resourcePath = '/bcf/{version}/projects/{project_id}/documents/{document_guid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -311,10 +311,10 @@ class DocumentReferenceApi
             );
         }
         // path params
-        if ($topic_guid !== null) {
+        if ($document_guid !== null) {
             $resourcePath = str_replace(
-                '{' . 'topic_guid' . '}',
-                ObjectSerializer::toPathValue($topic_guid),
+                '{' . 'document_guid' . '}',
+                ObjectSerializer::toPathValue($document_guid),
                 $resourcePath
             );
         }
@@ -384,43 +384,39 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost
+     * Operation bcfVersionProjectsProjectIdDocumentsGet
      *
-     * Retrieve a collection of all document references to a topic.
+     * Retrieve a collection of all documents uploaded to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
-     * @param  \Swagger\Client\Model\DocumentReferencePOST $document_reference_post document_reference_post (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\DocumentReferenceGET[]
+     * @return \Swagger\Client\Model\DocumentGET[]
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost($version, $project_id, $topic_guid, $document_reference_post = null)
+    public function bcfVersionProjectsProjectIdDocumentsGet($version, $project_id)
     {
-        list($response) = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostWithHttpInfo($version, $project_id, $topic_guid, $document_reference_post);
+        list($response) = $this->bcfVersionProjectsProjectIdDocumentsGetWithHttpInfo($version, $project_id);
         return $response;
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdDocumentsGetWithHttpInfo
      *
-     * Retrieve a collection of all document references to a topic.
+     * Retrieve a collection of all documents uploaded to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
-     * @param  \Swagger\Client\Model\DocumentReferencePOST $document_reference_post (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\DocumentReferenceGET[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\DocumentGET[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostWithHttpInfo($version, $project_id, $topic_guid, $document_reference_post = null)
+    public function bcfVersionProjectsProjectIdDocumentsGetWithHttpInfo($version, $project_id)
     {
-        $returnType = '\Swagger\Client\Model\DocumentReferenceGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostRequest($version, $project_id, $topic_guid, $document_reference_post);
+        $returnType = '\Swagger\Client\Model\DocumentGET[]';
+        $request = $this->bcfVersionProjectsProjectIdDocumentsGetRequest($version, $project_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -471,7 +467,7 @@ class DocumentReferenceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\DocumentReferenceGET[]',
+                        '\Swagger\Client\Model\DocumentGET[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -482,21 +478,19 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostAsync
+     * Operation bcfVersionProjectsProjectIdDocumentsGetAsync
      *
-     * Retrieve a collection of all document references to a topic.
+     * Retrieve a collection of all documents uploaded to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
-     * @param  \Swagger\Client\Model\DocumentReferencePOST $document_reference_post (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostAsync($version, $project_id, $topic_guid, $document_reference_post = null)
+    public function bcfVersionProjectsProjectIdDocumentsGetAsync($version, $project_id)
     {
-        return $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostAsyncWithHttpInfo($version, $project_id, $topic_guid, $document_reference_post)
+        return $this->bcfVersionProjectsProjectIdDocumentsGetAsyncWithHttpInfo($version, $project_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -505,22 +499,20 @@ class DocumentReferenceApi
     }
 
     /**
-     * Operation bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostAsyncWithHttpInfo
+     * Operation bcfVersionProjectsProjectIdDocumentsGetAsyncWithHttpInfo
      *
-     * Retrieve a collection of all document references to a topic.
+     * Retrieve a collection of all documents uploaded to a project.
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
-     * @param  \Swagger\Client\Model\DocumentReferencePOST $document_reference_post (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostAsyncWithHttpInfo($version, $project_id, $topic_guid, $document_reference_post = null)
+    public function bcfVersionProjectsProjectIdDocumentsGetAsyncWithHttpInfo($version, $project_id)
     {
-        $returnType = '\Swagger\Client\Model\DocumentReferenceGET[]';
-        $request = $this->bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostRequest($version, $project_id, $topic_guid, $document_reference_post);
+        $returnType = '\Swagger\Client\Model\DocumentGET[]';
+        $request = $this->bcfVersionProjectsProjectIdDocumentsGetRequest($version, $project_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -560,38 +552,30 @@ class DocumentReferenceApi
     }
 
     /**
-     * Create request for operation 'bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost'
+     * Create request for operation 'bcfVersionProjectsProjectIdDocumentsGet'
      *
      * @param  string $version BFC Version (required)
      * @param  string $project_id Project ID (required)
-     * @param  string $topic_guid Topic guid (required)
-     * @param  \Swagger\Client\Model\DocumentReferencePOST $document_reference_post (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPostRequest($version, $project_id, $topic_guid, $document_reference_post = null)
+    protected function bcfVersionProjectsProjectIdDocumentsGetRequest($version, $project_id)
     {
         // verify the required parameter 'version' is set
         if ($version === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost'
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdDocumentsGet'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost'
-            );
-        }
-        // verify the required parameter 'topic_guid' is set
-        if ($topic_guid === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $topic_guid when calling bcfVersionProjectsProjectIdTopicsTopicGuidDocumentReferencesPost'
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdDocumentsGet'
             );
         }
 
-        $resourcePath = '/bcf/{version}/projects/{project_id}/topics/{topic_guid}/document_references';
+        $resourcePath = '/bcf/{version}/projects/{project_id}/documents';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -615,20 +599,290 @@ class DocumentReferenceApi
                 $resourcePath
             );
         }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers= $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdDocumentsPost
+     *
+     * Upload a document (binary file) to a project.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\DocumentGET[]
+     */
+    public function bcfVersionProjectsProjectIdDocumentsPost($version, $project_id)
+    {
+        list($response) = $this->bcfVersionProjectsProjectIdDocumentsPostWithHttpInfo($version, $project_id);
+        return $response;
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdDocumentsPostWithHttpInfo
+     *
+     * Upload a document (binary file) to a project.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\DocumentGET[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function bcfVersionProjectsProjectIdDocumentsPostWithHttpInfo($version, $project_id)
+    {
+        $returnType = '\Swagger\Client\Model\DocumentGET[]';
+        $request = $this->bcfVersionProjectsProjectIdDocumentsPostRequest($version, $project_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse()->getBody()->getContents()
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\DocumentGET[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdDocumentsPostAsync
+     *
+     * Upload a document (binary file) to a project.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdDocumentsPostAsync($version, $project_id)
+    {
+        return $this->bcfVersionProjectsProjectIdDocumentsPostAsyncWithHttpInfo($version, $project_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation bcfVersionProjectsProjectIdDocumentsPostAsyncWithHttpInfo
+     *
+     * Upload a document (binary file) to a project.
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function bcfVersionProjectsProjectIdDocumentsPostAsyncWithHttpInfo($version, $project_id)
+    {
+        $returnType = '\Swagger\Client\Model\DocumentGET[]';
+        $request = $this->bcfVersionProjectsProjectIdDocumentsPostRequest($version, $project_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'bcfVersionProjectsProjectIdDocumentsPost'
+     *
+     * @param  string $version BFC Version (required)
+     * @param  string $project_id Project ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function bcfVersionProjectsProjectIdDocumentsPostRequest($version, $project_id)
+    {
+        // verify the required parameter 'version' is set
+        if ($version === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $version when calling bcfVersionProjectsProjectIdDocumentsPost'
+            );
+        }
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling bcfVersionProjectsProjectIdDocumentsPost'
+            );
+        }
+
+        $resourcePath = '/bcf/{version}/projects/{project_id}/documents';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
         // path params
-        if ($topic_guid !== null) {
+        if ($version !== null) {
             $resourcePath = str_replace(
-                '{' . 'topic_guid' . '}',
-                ObjectSerializer::toPathValue($topic_guid),
+                '{' . 'version' . '}',
+                ObjectSerializer::toPathValue($version),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
 
         // body params
         $_tempBody = null;
-        if (isset($document_reference_post)) {
-            $_tempBody = $document_reference_post;
-        }
 
         if ($multipart) {
             $headers= $this->headerSelector->selectHeadersForMultipart(

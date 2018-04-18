@@ -73,52 +73,52 @@ class CommentApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidCommentsGet
-     *
-     * Retrieve a collection of all comments related to a topic.
-     *
-     */
-    public function testBcfVersionProjectsProjectIdTopicsGuidCommentsGet()
-    {
-    }
-
-    /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete
      *
      * Deletes a single comment..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsGuidCommentsGuidDelete()
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidDelete()
     {
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet
      *
      * Retrieve a collection of all comments related to a topic.
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsGuidCommentsGuidGet()
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidGet()
     {
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut
      *
      * Update a single comment.
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsGuidCommentsGuidPut()
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidCommentsCommentGuidPut()
     {
     }
 
     /**
-     * Test case for bcfVersionProjectsProjectIdTopicsGuidCommentsPost
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet
+     *
+     * Retrieve a collection of all comments related to a topic.
+     *
+     */
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidCommentsGet()
+    {
+    }
+
+    /**
+     * Test case for bcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost
      *
      * Add a new comment to a topic..
      *
      */
-    public function testBcfVersionProjectsProjectIdTopicsGuidCommentsPost()
+    public function testBcfVersionProjectsProjectIdTopicsTopicGuidCommentsPost()
     {
     }
 }
