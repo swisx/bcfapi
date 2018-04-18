@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(Bcfapi.Error);
     });
 
+    it('should have the property code (base name: "code")', function() {
+      // uncomment below and update the code to test the property code
+      //var instane = new Bcfapi.Error();
+      //expect(instance).to.be();
+    });
+
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
       //var instane = new Bcfapi.Error();
