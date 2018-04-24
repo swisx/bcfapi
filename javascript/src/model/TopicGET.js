@@ -30,15 +30,19 @@ export default class TopicGET {
     * Constructs a new <code>TopicGET</code>.
     * @alias module:model/TopicGET
     * @class
+    * @param guid {String} 
+    * @param title {String} 
+    * @param creationDate {String} 
+    * @param creationAuthor {String} 
     */
 
-    constructor() {
+    constructor(guid, title, creationDate, creationAuthor) {
         
 
         
         
 
-        
+        this['guid'] = guid;this['title'] = title;this['creation_date'] = creationDate;this['creation_author'] = creationAuthor;
 
         
     }

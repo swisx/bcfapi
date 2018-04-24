@@ -3,16 +3,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**guid** | **String** |  | [optional] 
+**guid** | **String** |  | 
 **topicType** | **String** |  | [optional] 
 **topicStatus** | **String** |  | [optional] 
 **referenceLinks** | **[String]** |  | [optional] 
-**title** | **String** |  | [optional] 
+**title** | **String** |  | 
 **priority** | **String** |  | [optional] 
 **index** | **Number** |  | [optional] 
 **labels** | **[String]** |  | [optional] 
-**creationDate** | **String** |  | [optional] 
-**creationAuthor** | **String** |  | [optional] 
+**creationDate** | **String** |  | 
+**creationAuthor** | **String** |  | 
 **modifiedDate** | **String** |  | [optional] 
 **modifiedAuthor** | **String** |  | [optional] 
 **assignedTo** | **String** |  | [optional] 
