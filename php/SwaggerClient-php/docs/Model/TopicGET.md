@@ -3,16 +3,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**guid** | **string** |  | [optional] 
+**guid** | **string** |  | 
 **topic_type** | **string** |  | [optional] 
 **topic_status** | **string** |  | [optional] 
 **reference_links** | **string[]** |  | [optional] 
-**title** | **string** |  | [optional] 
+**title** | **string** |  | 
 **priority** | **string** |  | [optional] 
 **index** | **int** |  | [optional] 
 **labels** | **string[]** |  | [optional] 
-**creation_date** | **string** |  | [optional] 
-**creation_author** | **string** |  | [optional] 
+**creation_date** | **string** |  | 
+**creation_author** | **string** |  | 
 **modified_date** | **string** |  | [optional] 
 **modified_author** | **string** |  | [optional] 
 **assigned_to** | **string** |  | [optional] 

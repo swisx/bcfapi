@@ -290,6 +290,18 @@ class TopicGET implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['guid'] === null) {
+            $invalidProperties[] = "'guid' can't be null";
+        }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['creation_date'] === null) {
+            $invalidProperties[] = "'creation_date' can't be null";
+        }
+        if ($this->container['creation_author'] === null) {
+            $invalidProperties[] = "'creation_author' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -302,6 +314,18 @@ class TopicGET implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        if ($this->container['guid'] === null) {
+            return false;
+        }
+        if ($this->container['title'] === null) {
+            return false;
+        }
+        if ($this->container['creation_date'] === null) {
+            return false;
+        }
+        if ($this->container['creation_author'] === null) {
+            return false;
+        }
         return true;
     }
 
