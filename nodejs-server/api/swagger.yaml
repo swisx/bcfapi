@@ -2176,6 +2176,11 @@ definitions:
         type: "string"
   topic_GET:
     type: "object"
+    required:
+    - "creation_author"
+    - "creation_date"
+    - "guid"
+    - "title"
     properties:
       guid:
         type: "string"
